@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import Header from './components/Layouts/Header'
+import Register from './components/Register/Register.jsx'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      
+      <Header/>
+      {/* <Register/> */}
     </>
   )
 }
