@@ -6,10 +6,10 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
-    <footer className=" bg-slate-900 text-white ">
-      <div className="flex flex-row justify-around items-center p-12 gap-8">
-      <div className="flex justify-between gap-x-8 text-md ">
-        <ul>
+    <footer className=" bg-indigo-900 text-white ">
+      <div className="flex justify-between items-center p-12 gap-8">
+      <div className="flex justify-between gap-10 text-md ">
+        <ul >
           <li className="text-2xl font-bold">Company</li><br />
           <li>About</li>
           <li>Blog</li>

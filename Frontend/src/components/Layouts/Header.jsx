@@ -4,8 +4,8 @@ import { IoMdMenu } from "react-icons/io";
 const Header = () => {
   return (
     <>
-      <div className="p-6">
-        <header className=" flex flex-row bg-blue-50 items-center justify-between p-8 rounded-3xl border-solid border-2 border-black text-1xl">
+      <div className="p-4 fixed  w-full">
+        <header className=" flex flex-row bg-blue-50 items-center justify-between p-8 rounded-3xl text-1xl">
           <div className="font-bold text-2xl">Roko App</div>
 
           <div>
