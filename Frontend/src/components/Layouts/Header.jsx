@@ -1,12 +1,15 @@
 import React from "react";
 import { IoMdMenu } from "react-icons/io";
+import Login from "../Login/Login.jsx";
+
+
 
 const Header = () => {
   return (
     <>
       <div className="p-4 fixed  w-full">
-        <header className=" flex flex-row bg-blue-50 items-center justify-between p-8 rounded-3xl text-1xl">
-          <div className="font-bold text-2xl">Roko App</div>
+        <header className=" flex flex-row bg-blue-50 items-center justify-between p-6 rounded-3xl text-1xl">
+          <div className="font-bold text-2xl">{}</div>
 
           <div>
             <ul className="hidden lg:flex space-x-10">
