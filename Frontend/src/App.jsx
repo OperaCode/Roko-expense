@@ -7,17 +7,22 @@ import './App.css'
 import Login from './components/Login/Login.jsx'
 
 function App() {
- 
+  const RenderRoute = () => (
 
-  return (
-    <>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route  path="/login" element={<Login />} />
-    </Routes>
   
-    </>
-  )
+     <Routes>
+      <Route path="/" element={<LandingPage/>} />
+      <Route path="/register" element={<Register/>} />
+      <Route path="/login" element={<Login/>} />
+    </Routes>
+     
+   
+
+  );
+
+  return <> {RenderRoute()};</>
+  
+  
 }
 
 export default App

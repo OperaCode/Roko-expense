@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Layouts/Header";
 import Footer from "./Layouts/Footer";
-import laptop from "../assets/laptop.png";
+import laptopAndPhone from "../assets/laptop.png";
 import singlelaptop from "../assets/single-laptop.png";
 import laptopcafe from "../assets/laptop-cafe.png";
 import laptopterrace from "../assets/laptop-terrace.png"
@@ -13,8 +13,8 @@ const LandingPage = () => {
     <>
       <main className="bg-gradient-to-tl from-indigo-400 to-indigo-950 pb-4">
         <Header logo ={rokologo}/>
-        <section className="flex flex-col text-center pt-40 ">
-          <div className="text-white px-6 lg:px-36">
+        <section className="flex flex-col text-center lg:pt-40 ">
+          <div className="text-white lg:px-36">
             <h1 className="font-bold text-5xl">
               The Smart Expense Management App that Works for you
             </h1>
@@ -25,18 +25,18 @@ const LandingPage = () => {
             </p>
           </div>
           <div className="flex justify-center mt-12">
-            <img src={laptop} />
+            <img src={laptopAndPhone} />
           </div>
         </section>
       </main>
 
-      <section className="pl-10 pt-6">
+      <section className="py-8 px-10">
         <h2 className="font-bold text-4xl ">How Roko Works</h2>
     
 
-        <div className="md:flex items-center">
+        <div className="md:flex ">
 
-          <div className="flex flex-col gap-5">
+          <div className="flex-1 space-y-4 mt-4 justify-center">
 
             {/* image and description container */}
             <div className="flex gap-2 ">
@@ -87,13 +87,13 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <button className="bg-indigo-900 p-3 text-white m-auto rounded w-2/4">Sign Up for Free</button>
+            <button className="bg-indigo-900 p-3 text-white rounded w-2/4 ml-24">Sign Up for Free</button>
 
           </div>
 
           {/* single laptop image */}
-          <div className="">
-            <img src={singlelaptop} className="max-w-2xl"/>
+          <div className="md:flex-1">
+            <img src={singlelaptop} className="lg:-mt-10"/>
           </div>
 
         </div>
