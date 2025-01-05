@@ -1,24 +1,32 @@
-import React from 'react'
-import Rokologo from "../../assets/Roko-logo.png"
+import React from "react";
+import logo from "../../assets/Roko-logo.png";
+import { IoMdMenu } from "react-icons/io";
 
 const SideBar = () => {
   return (
-    <div className='bg-indigo-600 p-20 w-1/3 border border-solid border-slate-800 h-screen '>
-      <div className='mb-20'>
-        <h1 className='text-5xl font-bold'>{Rokologo}</h1>
-      </div>
+    <aside className=" bg-indigo-800 lg:w-1/4 px-6 border-2 rounded-2xl">
+      <div className="bg-indigo-800 lg:p-5  lg:h-screen rounded ">
+        <div className="flex justify-between items-center lg:flex-col">
+          <div className="lg:mb-8">
+            <img src={logo} className="hover:cursor-pointer" />
+          </div>
 
-      <div>
-        <ul className='text-white text-3xl space-y-7 font-semibold'>
-          <li>DashBoard</li>
-          <li>Expenses</li>
-          <li>Invoice</li>
-          <li>Profile Settings</li>
-        </ul>
-      </div>
-      
-    </div>
-  )
-}
+          <div className="hidden my-4 md:block font-serif w-full lg:">
+            <ul className="text-white flex justify-end gap-11 lg:flex-col">
+              <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
+              <li className="hover:cursor-pointer lg:text-2xl">Expenses</li>
+              <li className="hover:cursor-pointer lg:text-2xl">History</li>
+              <li className="hover:cursor-pointer lg:text-2xl">Profile Settings</li>
+            </ul>
+          </div>
 
-export default SideBar
+          <div className="">
+            <IoMdMenu className="text-white size-10 md:hidden hover:cursor-pointer" />
+          </div>
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default SideBar;
