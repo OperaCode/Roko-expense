@@ -7,7 +7,7 @@ import "./Login.css";
 const Login = () => {
   return (
     <main className="bg-indigo-500 background p-16 ">
-      <div className="p-6 ">
+      <div className="">
         <div className="flex items-center gap-1 text-white hover:cursor-pointer">
           <GoArrowLeft />
           <p>Back to home Page</p>

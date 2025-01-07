@@ -93,7 +93,7 @@ const Register = () => {
                        className="bg-indigo-100 p-2 border border-black w-full"
                       required
                     />
-                    <FaRegEye className="-mt-8 right-40 absolute flex justify-end  cursor-pointer " />
+                    <FaRegEye className="-mt-8 right-56 absolute flex justify-end  cursor-pointer " />
                     </div>
                   </div>
                   <div className="flex flex-col gap-1">
@@ -108,7 +108,7 @@ const Register = () => {
                        className="bg-indigo-100 p-2 border border-black w-full"
                       required
                     />
-                    <FaRegEye className="-mt-8 right-40 absolute flex justify-end  cursor-pointer " />
+                    <FaRegEye className="-mt-8 right-56 absolute flex justify-end  cursor-pointer " />
                     </div>
                   </div>
 
