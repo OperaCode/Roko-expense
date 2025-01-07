@@ -1,7 +1,7 @@
 import React from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { FaRegEye } from "react-icons/fa6";
-// import background from "../assets/login-bg.jpg"
+
 import "./Login.css";
 
 const Login = () => {
