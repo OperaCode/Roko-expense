@@ -11,7 +11,7 @@ const SideBar = () => {
             <img src={logo} className="hover:cursor-pointer" />
           </div>
 
-          <div className="hidden my-4 md:block font-serif w-full lg:">
+          <div className="hidden my-4 md:block font-headerFont w-full lg:">
             <ul className="text-white flex justify-end gap-11 lg:flex-col">
               <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               <li className="hover:cursor-pointer lg:text-2xl">Expenses</li>
