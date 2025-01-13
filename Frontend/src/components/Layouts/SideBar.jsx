@@ -1,76 +1,30 @@
-import React, {useState} from "react";
-import { IoMdMenu } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { FaWindowClose } from "react-icons/fa";
+import React from "react";
 import logo from "../../assets/Roko-logo.png";
-
-
-
-
+import { IoMdMenu } from "react-icons/io";
 
 const SideBar = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    // Toggle the modal
-    const toggleModal = () => {
-      setIsModalOpen((prev) => !prev);
-    }
-
   return (
-    <aside className="bg-indigo-800 lg:w-1/4 p-2 pt-8 border-2 rounded-2xl">
-      <div className="lg:p-5 lg:h-screen rounded px-3">
+    <aside className=" bg-indigo-800 lg:w-1/4 px-6 border-2 rounded-2xl">
+      <div className="bg-indigo-800 lg:p-5  lg:h-screen rounded ">
         <div className="flex justify-between items-center lg:flex-col">
-          {/* Logo */}
           <div className="lg:mb-8">
-            <Link to="/dashboard">
-              <img src={logo} alt="Logo" className="hover:cursor-pointer" />
-            </Link>
+            <img src={logo} className="hover:cursor-pointer" />
           </div>
 
-          {/* Menu Items */}
-          <div className="hidden my-4 md:block font-headerFont w-full lg:">
+          <div className="hidden my-4 md:block font-serif w-full lg:">
             <ul className="text-white flex justify-end gap-11 lg:flex-col">
-              <Link to="/dashboard">
-                <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
-              </Link>
+              <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               <li className="hover:cursor-pointer lg:text-2xl">Expenses</li>
               <li className="hover:cursor-pointer lg:text-2xl">History</li>
               <li className="hover:cursor-pointer lg:text-2xl">Profile Settings</li>
             </ul>
           </div>
 
-          {/* Menu Icon for Small Screens */}
           <div className="">
-            <IoMdMenu
-              className="text-white size-10 md:hidden hover:cursor-pointer hover:text-gray-400 "
-              onClick={toggleModal} // Toggle modal visibility on click
-            />
+            <IoMdMenu className="text-white size-10 md:hidden hover:cursor-pointer" />
           </div>
         </div>
       </div>
-
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-          <div className=" bg-blue-900 text-white rounded-lg shadow-lg p-6 border-4 relative">
-            {/* Close Button */}
-            <button
-              className="top-4 left-4  text-white text-lg  "
-              onClick={toggleModal} // Close the modal
-            >
-               <FaWindowClose className="w-10 h-10 hover:text-gray-400 " />
-            </button>
-            {/* Modal Menu Items */}
-            <ul className="space-y-8 text-2xl p-4">
-              <li className="hover:text-gray-400 cursor-pointer">Expenses</li>
-              <li className="hover:text-gray-400 cursor-pointer">History</li>
-              <li className="hover:text-gray-400 cursor-pointer">Profile Settings</li>
-            </ul>
-          
-            
-          </div>
-        </div>
-      )}
     </aside>
   );
 };

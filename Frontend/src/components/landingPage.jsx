@@ -7,7 +7,6 @@ import laptopcafe from "../assets/laptop-cafe.png";
 import laptopterrace from "../assets/laptop-terrace.png"
 import holdingPhone from "../assets/holdingPhone.png";
 import rokologo from "../assets/Roko-logo.png";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -16,11 +15,11 @@ const LandingPage = () => {
         <Header logo ={rokologo}/>
         <section className="flex flex-col text-center lg:pt-40 ">
           <div className="text-white lg:px-36">
-            <h1 className="font-bold font-headerFont text-5xl leading-normal">
+            <h1 className="font-bold text-5xl">
               The Smart Expense Management App that Works for you
             </h1>
             <br />
-            <p className="font-bodyFont">
+            <p>
               Mananging money is hard, but you don't have to it alone. Roko
               empowers you and manage your expenses.
             </p>
@@ -31,12 +30,13 @@ const LandingPage = () => {
         </section>
       </main>
 
-      <section className="py-8 px-16 flex flex-col gap-4">
-        <h2 className="font-bold text-4xl font-headerFont">How Roko Works</h2>
+      <section className="py-8 px-10">
+        <h2 className="font-bold text-4xl ">How Roko Works</h2>
+    
 
         <div className="md:flex ">
 
-          <div className="flex-1 space-y-4 mt-4 flex flex-col gap-4 justify-center">
+          <div className="flex-1 space-y-4 mt-4 justify-center">
 
             {/* image and description container */}
             <div className="flex gap-2 ">
@@ -46,25 +46,25 @@ const LandingPage = () => {
               </div>
 
               {/* Text Container for words beside images */}
-              <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Sign Up for Free</h3>
-                <p className="font-bodyFont">
+              <div className="">
+                <h3 className="text-md font-semibold">Sign Up for Free</h3>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                   corporis necessitatibus totam consectetur at atque!
                 </p>
               </div>
             </div>
 
-            <div className="flex gap-5">
+            <div className="flex gap-4">
               {/* image container beside words */}
               <div className="Image-container">
                 <img src={holdingPhone} alt="" />
               </div>
 
               {/* Text Container for words beside images */}
-              <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Make a Monthly Plan</h3>
-                <p className="font-bodyFont">
+              <div className="">
+                <h3 className="text-md font-semibold">Make a Monthly Plan</h3>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                   corporis necessitatibus totam consectetur at atque!
                 </p>
@@ -78,16 +78,16 @@ const LandingPage = () => {
               </div>
 
               {/* Text Container for words beside images */}
-              <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Enjoy less Stress</h3>
-                <p className="font-bodyFont">
+              <div className="">
+                <h3 className="text-md font-semibold">Enjoy less Stress</h3>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                   corporis necessitatibus totam consectetur at atque!
                 </p>
               </div>
             </div>
 
-            <Link to='/register'><button className="bg-indigo-900 p-3 text-white rounded w-2/4 ml-24 font-bodyFont">Sign Up for Free</button></Link>
+            <button className="bg-indigo-900 p-3 text-white rounded w-2/4 ml-24">Sign Up for Free</button>
 
           </div>
 
