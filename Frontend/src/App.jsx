@@ -18,6 +18,7 @@ import Modal_6 from "./components/Modals/Modal 6.jsx";
 import ExpensePage from "./components/Pages/ExpensePage.jsx";
 import DashLayout from "./components/Layouts/DashLayout.jsx";
 import HomeDash from "./components/Dashboard/HomeDash.jsx";
+import ProfileSettings from "./components/Dashboard/ProfileSettings.jsx";
 
 function App() {
   const RenderRoute = () => (
@@ -67,6 +68,7 @@ function App() {
       />
       <Route path="/modal" element={<Modal_7 />} />
       <Route path="/expense" element={<ExpensePage />} />
+      <Route path="/profile-setting" element={<ProfileSettings/>} />
     </Routes>
   );
   return <> {RenderRoute()}</>;

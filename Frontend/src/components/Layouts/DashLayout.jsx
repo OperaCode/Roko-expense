@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const DashLayout = ({ children }) => {
   return (
-    <div className="lg:flex items-cent bg-indigo-500 p-4 ">
+    <div className="lg:flex items-cent bg-indigo-500 p-1 ">
       {/* Sidebar */}
       <SideBar />
 
