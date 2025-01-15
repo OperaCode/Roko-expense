@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 
 const DashLayout = ({ children }) => {
   return (
-    <div className="lg:flex items-cent bg-indigo-500 p-1 ">
+    <div className="lg:flex items-cent bg-indigo-600 p-1 ">
       {/* Sidebar */}
       <SideBar />
 
       {/* Main Content */}
       <div className="flex-col w-full p-3 ">
         {/* Navbar */}
-        <div className="flex items-center justify-between p-4">
-          <h1 className="text-3xl font-semibold text-white">
+        <div className="flex items-center justify-between p-2">
+          <h1 className="text-3xl md:text-2xl font-semibold text-white">
             Welcome Cheryl,
           </h1>
           <div className="w-12 h-12">

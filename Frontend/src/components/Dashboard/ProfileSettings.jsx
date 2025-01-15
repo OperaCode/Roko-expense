@@ -25,7 +25,7 @@ const ProfileSettings = () => {
               <img
                 src={image}
                 alt="Profile"
-                className="w-28 h-28 rounded-full border-4 border-indigo-300 mb-4"
+                className="w-28 h-28 rounded-full border-4 hover:cursor-pointer border-indigo-300 mb-4"
               />
               <Link to="/edit-picture">
                 <GoPencil className="w-10 h-10 absolute bottom-0 right-0  text-indigo-900 rounded-full p-1" />
@@ -34,45 +34,47 @@ const ProfileSettings = () => {
           </div>
 
           {/* Form */}
-          <form className="space-y-6 px-6 flex-col justify-center items-center ">
-            <div className="flex gap-2 justify-center items-center">
-              <label className=" text-right font-semibold">First Name:</label>
-              <input
-                type="text"
-                placeholder="John"
-                className="w-3/4 p-2 border rounded"
-              />
-              <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
-            </div>
-            <div className="flex gap-2  justify-center items-center ">
-              <label className=" text-right font-semibold">Last Name:</label>
-              <input
-                type="text"
-                placeholder="Doe"
-                className="w-3/4 p-2 border rounded "
-          
-              />
-              <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
-            </div>
-            <div className="flex gap-2 w-full ">
-              <label className=" text-center border flex font-semibold">Email Address:</label>
-              <input
-                type="email"
-                placeholder="JohnDoe@example.com"
-                className="w-3/4 p-2 border rounded items-center"
-              />
-              <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
-            </div>
-            <div className="flex gap-2 justify-center items-center">
-              <label className="text-right font-semibold">Password:</label>
-              <input
-                type="password"
-                placeholder="******"
-                className="w-3/4 p-2 border rounded"
-              />
-              <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
-            </div><br />
+          <form className="">
+            <div className="space-y-6 w-full flex-col justify-center items-center ">
+              <div className="flex gap-2 justify-center items-center">
+                <label className=" text-right font-semibold">First Name:</label>
+                <input
+                  type="text"
+                  placeholder="John"
+                  className="w-3/4 p-2 border rounded"
+                />
+                <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
+              </div>
+              <div className="flex gap-2  justify-center items-center ">
+                <label className=" text-right font-semibold">Last Name:</label>
+                <input
+                  type="text"
+                  placeholder="Doe"
+                  className="w-full p-2 border rounded "
+                />
+                <GoPencil className=" text-indigo-500 cursor-pointer" />
+              </div>
+              <div className="flex gap-2  justify-center items-center  ">
+                <label className=" text-right font-semibold">Email:</label>
+                <input
+                  type="text"
+                  placeholder="email@example.com"
+                  className="w-full p-2 border rounded "
+                />
+                <GoPencil className=" text-indigo-500 cursor-pointer" />
+              </div>
 
+              <div className="flex gap-2 justify-center items-center">
+                <label className="text-right font-semibold">Password:</label>
+                <input
+                  type="password"
+                  placeholder="******"
+                  className="w-3/4 p-2 border rounded"
+                />
+                <GoPencil className="ml-2 text-indigo-500 cursor-pointer" />
+              </div>
+              <br />
+            </div>
             <div className="text-center">
               <button
                 type="submit"

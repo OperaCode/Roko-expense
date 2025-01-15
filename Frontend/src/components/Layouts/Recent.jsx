@@ -24,7 +24,7 @@ const transactions = [
 
 const Recent = () => {
   return (
-    <div className="w-full p-6 bg-white rounded-lg shadow-md">
+    <div className="w-full p-6 bg-white rounded-lg mt-4 shadow-md">
       {/* Header */}
       <div className="flex justify-between items-center  md:text-lg">
         <div>
