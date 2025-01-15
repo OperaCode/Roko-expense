@@ -3,21 +3,24 @@ import { CiMenuKebab } from "react-icons/ci";
 
 const transactions = [
   {
-    description: "Orlando",
-    type: "Bank account",
-    date: new Date().toLocaleDateString(),
+    title: "Orlando",
+    category: "Bank account",
+    method: "Bank Transfer",
+    date: Date.now(),
     amount: "$4,850.00",
   },
   {
-    description: "PayPal",
-    type: "Credit Card",
-    date: new Date().toLocaleDateString(),
+    title: "PayPal",
+    category: "",
+    method: "Credit Card",
+    date: Date.now(),
     amount: "$3,600.00",
   },
   {
-    description: "Netflix",
-    type: "Credit Card",
-    date: new Date().toLocaleDateString(),
+    title: "Netflix",
+    category: "Entertainment",
+    method: "Bank Transfer",
+    date: Date.now(),
     amount: "$400.00",
   },
 ];
@@ -43,8 +46,9 @@ const Recent = () => {
         <table className="w-full text-xs md:text-lg">
           <thead>
             <tr className="bg-gray-100 ">
-              <th className="text-center text-base text-gray-700">Description</th>
-              <th className="text-center text-base hidden md:block text-gray-700">Type</th>
+              <th className="text-center text-base text-gray-700">Title</th>
+              <th className="text-center text-base hidden md:block text-gray-700 ">Category</th>
+              <th className="text-center text-base text-gray-700 hidden md:block">Transaction Method</th>
               <th className="text-center text-base text-gray-700">Date</th>
               <th className="text-center text-base text-gray-700">Amount</th>
               <th className="text-center  text-base md:hidden text-gray-700">Action</th>
@@ -58,8 +62,9 @@ const Recent = () => {
                   index % 2 === 0 ? "bg-white" : "bg-gray-50"
                 } hover:bg-gray-100 `}
               >
-                <td className="text-center text-base p-2 text-gray-800">{transaction.description}</td>
-                <td className="text-center text-base p-2 hidden md:block text-gray-600">{transaction.type}</td>
+                <td className="text-center text-base p-2 text-gray-800">{transaction.title}</td>
+                <td className="text-center text-base p-2 text-gray-800 hidden md:block">{transaction.category}</td>
+                <td className="text-center text-base p-2 hidden md:block text-gray-600">{transaction.method}</td>
                 <td className="text-center text-base p-2 text-gray-600">{transaction.date}</td>
                 <td className="text-center text-base p-2  text-green-500">
                   {transaction.amount}

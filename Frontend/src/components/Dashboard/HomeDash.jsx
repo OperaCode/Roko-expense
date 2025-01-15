@@ -1,5 +1,6 @@
 import React from "react";
 import Graph from "../Layouts/Graph";
+import { IoAddCircle } from "react-icons/io5";
 
 const HomeDash = () => {
   return (
@@ -7,7 +8,9 @@ const HomeDash = () => {
       {/* Total Incomes and Funding */}
 
       <div className=" flex-1 space-y-3 ">
+      <h1 className="text-white font-semibold text-3xl md:text-2xl p-1">Current Balance:</h1>
         <div className="p-4 bg-white rounded-lg shadow-md w-1/2 ">
+        
           <p className="text-gray-600 text-sm  md:text-xs">
             Total Expenses
           </p>
@@ -41,7 +44,7 @@ const HomeDash = () => {
             </div>
             {/* button */}
             <div className=" w-2/4 flex m-auto pb-3 justify-center" >
-              <button className="bg-blue-900 w-full text-white p-3 text-center items-center justify-center text">Add Expense</button>
+              <button className="bg-blue-900 items-center rounded justify-center w-full text-white p-3 flex"><IoAddCircle  className="mr-1"/>Add Expense</button>
             </div>
           </div>
         </div>

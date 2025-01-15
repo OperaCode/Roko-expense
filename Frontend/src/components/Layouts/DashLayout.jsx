@@ -13,8 +13,8 @@ const DashLayout = ({ children }) => {
       {/* Main Content */}
       <div className="flex-col w-full p-3 ">
         {/* Navbar */}
-        <div className="flex items-center justify-between p-2">
-          <h1 className="text-3xl md:text-2xl font-semibold text-white">
+        <div className="flex items-center justify-end gap-4 p-2">
+          <h1 className="text-2xl md:text-3xl font-bold text-white">
             Welcome Cheryl,
           </h1>
           <div className="w-12 h-12">
