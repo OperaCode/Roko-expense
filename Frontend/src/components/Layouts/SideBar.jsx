@@ -33,8 +33,12 @@ const SideBar = () => {
               <Link to="/dashboard">
                 <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               </Link>
+              
               <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
+             
+              <Link to="/profile-setting">
               <li className="hover:cursor-pointer lg:text-2xl">Profile Settings</li>
+              </Link>
             </ul>
           </div>
 
@@ -61,9 +65,9 @@ const SideBar = () => {
             </button>
             {/* Modal Menu Items */}
             <ul className="space-y-8 text-2xl p-4">
-              <li className="hover:text-gray-400 cursor-pointer">Expenses</li>
-              <li className="hover:text-gray-400 cursor-pointer">History</li>
-              <li className="hover:text-gray-400 cursor-pointer">Profile Settings</li>
+             <Link path="/dashboard"> <li className="hover:text-gray-400 cursor-pointer">Dashboard</li></Link>
+             <Link> <li className="hover:text-gray-400 cursor-pointer">Invoice</li></Link>
+              <Link path="/profile-setting"><li className="hover:text-gray-400 cursor-pointer">Profile Settings</li></Link>
             </ul>
           
             

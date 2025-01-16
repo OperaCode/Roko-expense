@@ -15,10 +15,11 @@ import Modal_4 from "./components/Modals/Modal 4.jsx";
 import Modal_5 from "./components/Modals/Modal 5.jsx";
 import Modal_7 from "./components/Modals/Modal 7.jsx";
 import Modal_6 from "./components/Modals/Modal 6.jsx";
-import ExpensePage from "./components/Pages/ExpensePage.jsx";
+
 import DashLayout from "./components/Layouts/DashLayout.jsx";
 import HomeDash from "./components/Dashboard/HomeDash.jsx";
 import ProfileSettings from "./components/Dashboard/ProfileSettings.jsx";
+
 
 function App() {
   const RenderRoute = () => (
@@ -67,8 +68,8 @@ function App() {
         }
       />
       <Route path="/modal" element={<Modal_7 />} />
-      <Route path="/expense" element={<ExpensePage />} />
-      <Route path="/profile-setting" element={<ProfileSettings/>} />
+      <Route path="/profile-setting" element={<ProfileSettings/>}/>
+      
     </Routes>
   );
   return <> {RenderRoute()}</>;
