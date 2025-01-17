@@ -4,21 +4,21 @@ import { CiMenuKebab } from "react-icons/ci";
 const transactions = [
   {
     title: "Orlando",
-    category: "Bank account",
+    category: "Food and Groceries",
     method: "Bank Transfer",
     date: Date.now(),
     amount: "$4,850.00",
   },
   {
-    title: "PayPal",
-    category: "",
+    title: "Rent",
+    category: "Utility",
     method: "Credit Card",
     date: Date.now(),
     amount: "$3,600.00",
   },
   {
-    title: "Netflix",
-    category: "Entertainment",
+    title: "PayPal",
+    category: "Travel and Vacation",
     method: "Bank Transfer",
     date: Date.now(),
     amount: "$400.00",
@@ -42,16 +42,16 @@ const Recent = () => {
       </div>
 
       {/* Transactions Table */}
-      <div className="border rounded-lg p-6 ">
+      <div className="border rounded-lg">
         <table className="w-full text-xs md:text-lg">
           <thead>
             <tr className="bg-gray-100 ">
               <th className="text-center text-base text-gray-700">Title</th>
-              <th className="text-center text-base hidden md:block text-gray-700 ">Category</th>
+              <th className="text-center text-base  text-gray-700 ">Category</th>
               <th className="text-center text-base text-gray-700 hidden md:block">Transaction Method</th>
-              <th className="text-center text-base text-gray-700">Date</th>
+              <th className="text-center text-base  text-gray-700">Date</th>
               <th className="text-center text-base text-gray-700">Amount</th>
-              <th className="text-center  text-base md:hidden text-gray-700">Action</th>
+              <th className="text-center  text-base text-gray-700 md:hidden">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -63,9 +63,9 @@ const Recent = () => {
                 } hover:bg-gray-100 `}
               >
                 <td className="text-center text-base p-2 text-gray-800">{transaction.title}</td>
-                <td className="text-center text-base p-2 text-gray-800 hidden md:block">{transaction.category}</td>
+                <td className="text-center text-base p-2 text-gray-800 ">{transaction.category}</td>
                 <td className="text-center text-base p-2 hidden md:block text-gray-600">{transaction.method}</td>
-                <td className="text-center text-base p-2 text-gray-600">{transaction.date}</td>
+                <td className="text-center text-base p-2  text-gray-600">{transaction.date}</td>
                 <td className="text-center text-base p-2  text-green-500">
                   {transaction.amount}
                 </td>

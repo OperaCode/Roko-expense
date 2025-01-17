@@ -19,6 +19,7 @@ import Modal_6 from "./components/Modals/Modal 6.jsx";
 import DashLayout from "./components/Layouts/DashLayout.jsx";
 import HomeDash from "./components/Dashboard/HomeDash.jsx";
 import ProfileSettings from "./components/Dashboard/ProfileSettings.jsx";
+import History from "./components/Dashboard/History.jsx";
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
       />
       <Route path="/modal" element={<Modal_7 />} />
       <Route path="/profile-setting" element={<ProfileSettings/>}/>
+      <Route path="/history" element={<History/>}/>
       
     </Routes>
   );

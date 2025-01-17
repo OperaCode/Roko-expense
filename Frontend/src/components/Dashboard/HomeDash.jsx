@@ -19,7 +19,7 @@ const HomeDash = () => {
 
 
         <h1 className="text-white font-semibold text-3xl md:text-2xl p-1">Expenses</h1>
-        <div className=" bg-white rounded-lg shadow-md text-center p ">
+        <div className=" bg-white rounded-lg shadow-md text-center px-4  ">
           <div  className="">
             <div className="flex justify-between items-center p-3 ">
               <p className="text-lg md:text-sm font-semibold">Foods and Groceries</p>
