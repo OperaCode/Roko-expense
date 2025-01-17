@@ -87,7 +87,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <Link to='/register'><button className="bg-indigo-900 p-3 text-white rounded w-2/4 ml-24 font-bodyFont">Sign Up for Free</button></Link>
+            <Link to='/how-it-works'><button className="bg-indigo-900 p-3 text-white rounded w-2/4 ml-24 font-bodyFont">Learn more</button></Link>
 
           </div>
 
