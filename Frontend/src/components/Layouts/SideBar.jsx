@@ -1,20 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FaWindowClose } from "react-icons/fa";
 import logo from "../../assets/Roko-logo.png";
 
-
-
-
-
 const SideBar = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    // Toggle the modal
-    const toggleModal = () => {
-      setIsModalOpen((prev) => !prev);
-    }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Toggle the modal
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
 
   return (
     <aside className="bg-indigo-800 lg:w-1/4 p-2 pt-8 border-2 rounded-2xl">
@@ -33,11 +29,13 @@ const SideBar = () => {
               <Link to="/dashboard">
                 <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               </Link>
-              
+
               <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
-             
+
               <Link to="/profile-setting">
-              <li className="hover:cursor-pointer lg:text-2xl">Profile Settings</li>
+                <li className="hover:cursor-pointer lg:text-2xl">
+                  Profile Settings
+                </li>
               </Link>
             </ul>
           </div>
@@ -61,16 +59,26 @@ const SideBar = () => {
               className="top-4 left-4  text-white text-lg  "
               onClick={toggleModal} // Close the modal
             >
-               <FaWindowClose className="w-10 h-10 hover:text-gray-400 " />
+              <FaWindowClose className="w-10 h-10 hover:text-gray-400 " />
             </button>
             {/* Modal Menu Items */}
             <ul className="space-y-8 text-2xl p-4">
-             <Link path="/dashboard"> <li className="hover:text-gray-400 cursor-pointer">Dashboard</li></Link>
-             <Link> <li className="hover:text-gray-400 cursor-pointer">Invoice</li></Link>
-              <Link path="/profile-setting"><li className="hover:text-gray-400 cursor-pointer">Profile Settings</li></Link>
+              <Link path="/dashboard">
+                <li className="hover:text-gray-400 cursor-pointer">
+                  Dashboard
+                </li>
+              </Link>
+
+              <Link path="/history">
+                <li className="hover:text-gray-400 cursor-pointer">Invoice</li>
+              </Link>
+
+              <Link path="/profile-setting">
+                <li className="hover:text-gray-400 cursor-pointer">
+                  Profile Settings
+                </li>
+              </Link>
             </ul>
-          
-            
           </div>
         </div>
       )}

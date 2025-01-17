@@ -1,26 +1,70 @@
-import React from 'react'
+import React from "react";
 import { CiMenuKebab } from "react-icons/ci";
-import SideBar from '../Layouts/SideBar';
-
+import SideBar from "../Layouts/SideBar";
+import { FaCaretDown } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import image from "../../assets/picture.jpeg";
 
 const transactions = [
   {
     title: "Orlando",
-    category: "Bank account",
+    category: "Food and Groceries",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$4,850.00",
+  },
+  {
+    title: "Orlando",
+    category: "Food and Groceries",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$4,850.00",
+  },
+  {
+    title: "Orlando",
+    category: "Food and Groceries",
     method: "Bank Transfer",
     date: Date.now(),
     amount: "$4,850.00",
   },
   {
     title: "PayPal",
-    category: "",
+    category: "TRavel and Expenses",
     method: "Credit Card",
     date: Date.now(),
     amount: "$3,600.00",
   },
   {
     title: "Netflix",
-    category: "Entertainment",
+    category: "Utility",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$400.00",
+  },
+  {
+    title: "Netflix",
+    category: "Utility",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$400.00",
+  },
+  {
+    title: "Netflix",
+    category: "Utility",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$400.00",
+  },
+  {
+    title: "Netflix",
+    category: "Utility",
+    method: "Bank Transfer",
+    date: Date.now(),
+    amount: "$400.00",
+  },
+  {
+    title: "Netflix",
+    category: "Utility",
     method: "Bank Transfer",
     date: Date.now(),
     amount: "$400.00",
@@ -28,65 +72,108 @@ const transactions = [
 ];
 const History = () => {
   return (
-   <div className="lg:flex items-cent bg-indigo-600 p-1">
-    <SideBar/>
-    <div className='flex w-full'>
-    <div className="w-full p-6 bg-white rounded-lg mt-4 shadow-md">
-         {/* Header */}
-         <div className="flex justify-between items-center  md:text-lg">
-           <div>
-             <h2 className="text-s md:text-lg font-semibold text-gray-800">
-               Recent Transactions
-             </h2>
-             <p className=" text-xs p-2 md:text-gray-500">Check your transaction history</p>
-           </div>
-           <button className="text-sm p-3 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-             See all
-           </button>
-         </div>
-   
-         {/* Transactions Table */}
-         <div className="border rounded-lg">
-           <table className="w-full text-xs md:text-lg">
-             <thead>
-               <tr className="bg-gray-100 ">
-                 <th className="text-center text-base text-gray-700">Title</th>
-                 <th className="text-center text-base  text-gray-700 ">Category</th>
-                 <th className="text-center text-base text-gray-700 hidden md:block">Transaction Method</th>
-                 <th className="text-center text-base  text-gray-700">Date</th>
-                 <th className="text-center text-base text-gray-700">Amount</th>
-                 <th className="text-center  text-base text-gray-700 md:hidden">Action</th>
-               </tr>
-             </thead>
-             <tbody>
-               {transactions.map((transaction, index) => (
-                 <tr
-                   key={index}
-                   className={`${
-                     index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                   } hover:bg-gray-100 `}
-                 >
-                   <td className="text-center text-base p-2 text-gray-800">{transaction.title}</td>
-                   <td className="text-center text-base p-2 text-gray-800 ">{transaction.category}</td>
-                   <td className="text-center text-base p-2 hidden md:block text-gray-600">{transaction.method}</td>
-                   <td className="text-center text-base p-2  text-gray-600">{transaction.date}</td>
-                   <td className="text-center text-base p-2  text-green-500">
-                     {transaction.amount}
-                   </td>
-                   <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
-                   <CiMenuKebab className="m-auto" />
-                   </td>
-                  
-                   
-                 </tr>
-               ))}
-             </tbody>
-           </table>
-         </div>
-       </div>
-    </div>
-   </div>
-  )
-}
+    <div className="lg:flex items-cent bg-indigo-600 p-1">
+      <SideBar />
+      <div className="flex p-6 w-full">
+        <div className="w-full rounded-lg mt-4 shadow-md">
+          {/* Header */}
+          <div className="flex items-center justify-end gap-4 p-2">
+            <h1 className="text-2xl md:text-3xl font-bold text-white">
+              Welcome Cheryl,
+            </h1>
+            <div className="w-12 h-12">
+              <Link to="/dashboard">
+                <img
+                  src={image}
+                  alt="Profile"
+                  className="w-full h-full rounded-full"
+                />
+              </Link>
+            </div>
+          </div>
 
-export default History
+          <div className=" bg-white h-screen p-4">
+            <div className=" flex text-white justify-center items-center">
+              <input type="text" className="w-2/4 p-3 h-10 rounded text-white bg-indigo-200"placeholder="Search by Keyword"/>
+            </div>
+            {/* Buttons */}
+            <div className="flex justify-between items-center p-6 md:text-lg">
+              <div className="p-4">
+                <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                  <FaCaretDown />
+                  Sort by C ategory
+                </button>
+              </div>
+
+              <div className="p-4">
+                <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                  <FaCaretDown />
+                  Download
+                </button>
+              </div>
+            </div>
+
+            {/* Transactions Table */}
+            <div className="border rounded-lg">
+              <table className="w-full text-xs md:text-lg">
+                <thead>
+                  <tr className="bg-gray-100 ">
+                    <th className="text-center text-base text-gray-700">
+                      Title
+                    </th>
+                    <th className="text-center text-base  text-gray-700 ">
+                      Category
+                    </th>
+                    <th className="text-center text-base text-gray-700 hidden md:block">
+                      Transaction Method
+                    </th>
+                    <th className="text-center text-base  text-gray-700">
+                      Date
+                    </th>
+                    <th className="text-center text-base text-gray-700">
+                      Amount
+                    </th>
+                    <th className="text-center  text-base text-gray-700 md:hidden">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {transactions.map((transaction, index) => (
+                    <tr
+                      key={index}
+                      className={`${
+                        index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                      } hover:bg-gray-100 `}
+                    >
+                      <td className="text-center text-base p-2 text-gray-800">
+                        {transaction.title}
+                      </td>
+                      <td className="text-center text-base p-2 text-gray-800 ">
+                        {transaction.category}
+                      </td>
+                      <td className="text-center text-base p-2 hidden md:block text-gray-600">
+                        {transaction.method}
+                      </td>
+                      <td className="text-center text-base p-2  text-gray-600">
+                        {transaction.date}
+                      </td>
+                      <td className="text-center text-base p-2  text-green-500">
+                        {transaction.amount}
+                      </td>
+                      <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
+                        <CiMenuKebab className="m-auto" />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default History;
