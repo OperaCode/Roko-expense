@@ -5,7 +5,7 @@ import { GoPencil } from "react-icons/go";
 
 const ProfileSettings = () => {
   return (
-    <div className="lg:flex  bg-indigo-500 p-1">
+    <div className="lg:flex  bg-indigo-500 p-1 font-bodyFont">
       {/* Sidebar */}
       <SideBar />
 
@@ -14,10 +14,10 @@ const ProfileSettings = () => {
         <div className="bg-slate-300 rounded border w-3/4 md: h-screen m-auto p-6">
           <div className="p-6 flex-col justify-center items-center ">
             <div className="text-center space-y-3 mb-6 ">
-              <h1 className="text-2xl md:text-2xl font-bold">
+              <h1 className="text-2xl md:text-3xl font-bold font-headerFont">
                 Account Settings
               </h1>
-              <p className="text-1xl md:text-xl font-medium">
+              <p className="text-lg md:text-xl font-medium">
                 Kindly check below to edit Personal Information
               </p>
             </div>
@@ -39,57 +39,64 @@ const ProfileSettings = () => {
             {/* Form */}
             <form className="  ">
               <div className="space-y-6 w-full flex-col  ">
-                
-                <div className="flex gap-2  justify-center items-center ">
-                  <label className=" text-right font-semibold">
-                    First Name:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Doe"
-                    className="w-2/3 p-2 border rounded "
-                  />
+                <div className="flex gap-2 justify-center items-center">
+                    <label htmlFor="email" className="font-medium">
+                   First Name:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="John"
+                      className="bg-indigo-100 p-2 w-2/3 rounded-md border-b border-indigo-900"
+                      required
+                    />
                   <GoPencil className=" text-indigo-500 cursor-pointer" />
                 </div>
-                <div className="flex gap-2  justify-center items-center ">
-                  <label className=" text-right font-semibold">
-                    Last Name:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Doe"
-                    className="w-2/3 p-2 border rounded "
-                  />
+                <div className="flex gap-2 justify-center items-center">
+                    <label htmlFor="email" className="font-medium">
+                   Last Name:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Doe"
+                      className="bg-indigo-100 p-2 w-2/3 rounded-md border-b border-indigo-900"
+                      required
+                    />
                   <GoPencil className=" text-indigo-500 cursor-pointer" />
                 </div>
-                <div className="flex gap-2 -ml-4 justify-center items-center ">
-                  <label className=" text-right font-semibold">
-                  Email Address:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Doe"
-                    className="w-2/3 mr-8 p-2 border rounded "
-                  />
-                  <GoPencil className=" text-indigo-500 -ml-8 cursor-pointer" />
-                </div>                
-                <div className="flex gap-2  justify-center items-center  ">
-                  <label className=" text-right font-semibold">Password:</label>
-                  <input
-                    type="text"
-                    placeholder="email@example.com"
-                    className="w-2/3 p-2 border rounded "
-                  />
+                <div className="flex gap-2 justify-center items-center">
+                    <label htmlFor="email" className="font-medium">
+                   Email:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="johndoe@ex.com"
+                      className="bg-indigo-100 p-2 w-2/3 rounded-md border-b border-indigo-900"
+                      required
+                    />
                   <GoPencil className=" text-indigo-500 cursor-pointer" />
                 </div>
-
-                
+                <div className="flex gap-2 justify-center items-center">
+                    <label htmlFor="email" className="font-medium">
+                   Password:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="........"
+                      className="bg-indigo-100 p-2 w-2/3 rounded-md border-b border-indigo-900"
+                      required
+                    />
+                  <GoPencil className=" text-indigo-500 cursor-pointer" />
+                </div>
                 <br />
               </div>
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-indigo-500 text-white w-1/3 p-3 rounded hover:bg-indigo-400"
+                  className="bg-indigo-700 text-white w-1/3 p-3 rounded hover:bg-indigo-900"
                 >
                   Save
                 </button>

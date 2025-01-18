@@ -2,7 +2,6 @@ import React from 'react'
 import { CiMenuKebab } from "react-icons/ci";
 import SideBar from '../Layouts/SideBar';
 
-
 const transactions = [
   {
     title: "Orlando",
@@ -28,7 +27,7 @@ const transactions = [
 ];
 const History = () => {
   return (
-   <div className="lg:flex items-cent bg-indigo-600 p-1">
+   <div className="lg:flex items-cent bg-indigo-600 p-1 font-bodyFont">
     <SideBar/>
     <div className='flex w-full'>
     <div className="w-full p-6 bg-white rounded-lg mt-4 shadow-md">
@@ -69,15 +68,13 @@ const History = () => {
                    <td className="text-center text-base p-2 text-gray-800">{transaction.title}</td>
                    <td className="text-center text-base p-2 text-gray-800 ">{transaction.category}</td>
                    <td className="text-center text-base p-2 hidden md:block text-gray-600">{transaction.method}</td>
-                   <td className="text-center text-base p-2  text-gray-600">{transaction.date}</td>
-                   <td className="text-center text-base p-2  text-green-500">
+                   <td className="text-center text-base p-2 text-gray-600">{transaction.date}</td>
+                   <td className="text-center text-base p-2 text-green-500">
                      {transaction.amount}
                    </td>
                    <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
                    <CiMenuKebab className="m-auto" />
                    </td>
-                  
-                   
                  </tr>
                ))}
              </tbody>

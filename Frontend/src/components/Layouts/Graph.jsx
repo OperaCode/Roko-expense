@@ -4,11 +4,7 @@ import {Chart, ArcElement} from "chart.js"
 import {Doughnut} from "react-chartjs-2";
 import Label from './Label.jsx';
 
-
 Chart.register(ArcElement);
-
-
-
 
 const config = {
   data: {

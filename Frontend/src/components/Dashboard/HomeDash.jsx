@@ -4,7 +4,7 @@ import { IoAddCircle } from "react-icons/io5";
 
 const HomeDash = () => {
   return (
-    <section className="md:flex justify-between gap-5 items-center  w-full">
+    <section className="md:flex justify-between gap-5 items-center font-bodyFont w-full">
       {/* Total Incomes and Funding */}
 
       <div className=" flex-1 space-y-3 ">
