@@ -5,14 +5,11 @@ import AddExpenseModal from "../Modals/addExpenseModal";
 
 
 const HomeDash = () => {
+
   // State to manage modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Function to toggle the modal
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
-
+  
   return (
     <section className="md:flex justify-between gap-5 items-center w-full">
       {/* Total Incomes and Funding */}
