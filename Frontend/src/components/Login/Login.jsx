@@ -40,7 +40,7 @@ const Login = () => {
            
 
             <form action="" className="px-16 flex flex-col gap-5">
-            <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1">
                     <label htmlFor="email" className="font-medium">
                    Email
                     </label>
@@ -51,8 +51,7 @@ const Login = () => {
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
                       required
                     />
-                  </div>
-             
+                </div>
               <div className="flex flex-col gap-1">
                 <label htmlFor="password" className="font-medium">
                   Password
