@@ -30,7 +30,9 @@ const SideBar = () => {
                 <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               </Link>
 
+              <Link to="/history">
               <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
+              </Link>
 
               <Link to="/profile-setting">
                 <li className="hover:cursor-pointer lg:text-2xl">
@@ -70,7 +72,9 @@ const SideBar = () => {
               </Link>
 
               <Link path="/history">
-                <li className="hover:text-gray-400 cursor-pointer">Invoice</li>
+                <li className="hover:text-gray-400 cursor-pointer">
+                  Invoice
+                </li>
               </Link>
 
               <Link path="/profile-setting">
