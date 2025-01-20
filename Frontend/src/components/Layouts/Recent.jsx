@@ -1,5 +1,6 @@
 import React from "react";
 import { CiMenuKebab } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const transactions = [
   {
@@ -36,9 +37,11 @@ const Recent = () => {
           </h2>
           <p className=" text-xs p-2 md:text-gray-500">Check your transaction history</p>
         </div>
+        <Link to="/history">
         <button className="text-sm p-3 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
           See all
         </button>
+        </Link>
       </div>
 
       {/* Transactions Table */}

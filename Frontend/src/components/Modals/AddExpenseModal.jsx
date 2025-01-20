@@ -3,26 +3,17 @@ import React, { useState } from 'react';
 const AddExpenseModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      {/* Button to Open Modal */}
-      {/* <button
-        onClick={toggleModal}
-        className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-700"
-      >
-        Add Expense
-      </button> */}
-
+    <div className="flex items-center justify-center ">
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gradient-to-tl from-indigo-400 to-indigo-950 p-8 rounded-lg">
+          <div className=" p-8 rounded-lg">
             <div className="bg-indigo-800 rounded-lg shadow-lg p-8 w-96 relative border-2 border-white">
               {/* Modal Form */}
               <div className="space-y-4">
