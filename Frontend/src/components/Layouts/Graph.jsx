@@ -4,11 +4,7 @@ import {Chart, ArcElement} from "chart.js"
 import {Doughnut} from "react-chartjs-2";
 import Label from './Label.jsx';
 
-
 Chart.register(ArcElement);
-
-
-
 
 const config = {
   data: {
@@ -31,8 +27,8 @@ const config = {
 }
 const Graph = () => {
   return (
-    <div className='flex w-full justify-center rounded bg-white p-6  '>
-      <div className="">
+    <div className='flex w-full md:h- justify-center rounded bg-white p-6  '>
+      <div className="p-8">
         <div className="w-40 m-auto">
          <Doughnut {...config}></Doughnut>
          {/* <h3 className=' mb-4font-bold'>Total <span className='block text-emerald-400'>${0}</span></h3> */}

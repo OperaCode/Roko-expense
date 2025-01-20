@@ -1,9 +1,17 @@
 import React from "react";
 import { IoMdMenu } from "react-icons/io";
 import logo from '../../assets/Roko-logo.png';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+const navTitle = [
+  {url: '/', title: 'Home'},
+  {url: '/about', title: 'About Us'},
+  {url: '/how-it-works', title: 'How It Works'},
+  {url: '/blog', title: 'Blog'}
+]
 
 const Header = () => {
+  const location = useLocation();
   return (
     <>
       <div className="p-4 flex justify-end lg:fixed w-full font-bodyFont">
@@ -12,13 +20,15 @@ const Header = () => {
             <Link to='/'><img src={logo}  /></Link>
           </div>
 
-          <div>
-            <ul className="hidden lg:flex space-x-16 ">
-              <Link to='/about'><li>About Us</li></Link>
-              <Link to='/how-it-works'><li>How it Works</li></Link>
-              <Link to='/blog'><li>Blog</li></Link>
-            </ul>
-          </div>
+          <ul className="hidden lg:flex space-x-16">
+            {navTitle.map(({ url, title }, index) => (
+              <li className="hover:text-indigo-600 hover:transition-all" key={index}>
+                <Link to={url} className={url === location.pathname ? 'text-indigo-700 font-semibold' : ''}>
+        {title}
+      </Link>
+    </li>
+  ))}
+</ul>
 
           <div className="flex flex-row gap-4 text-sm items-center ">
             <Link to='/login'><button className="px-5 py-2 border-black font-medium border-2 rounded-md">

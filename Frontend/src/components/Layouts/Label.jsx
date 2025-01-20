@@ -21,10 +21,10 @@ const labelObject = [
 const Label = () => {
   return (
     <>
-      <div className="border  ">
+      <div className="  ">
         {labelObject.map((item, index) => (
-          <div className="flex justify-between  w-60 ">
-            <div className="">
+          <div className="flex justify-between items-center w-60 ">
+            <div className="p-2">
               <div className="flex gap-2" key={index}>
                 <div
                   className="w-2 h-2 rounded py-3"
@@ -34,7 +34,7 @@ const Label = () => {
               </div>
             </div>
 
-            <div className="">
+            <div className=" flex items-center">
               <h3 className="font-bold">{item.percent ?? 0}</h3>
             </div>
           </div>
