@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal_3 = () => {
+const iconModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => setIsOpen(false);
@@ -39,4 +39,4 @@ const Modal_3 = () => {
   );
 };
 
-export default Modal_3;
+export default iconModal;

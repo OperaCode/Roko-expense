@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal_7 = () => {
+const navBarModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => setIsOpen(false);
@@ -38,4 +38,4 @@ const Modal_7 = () => {
   );
 };
 
-export default Modal_7;
+export default navBarModal;
