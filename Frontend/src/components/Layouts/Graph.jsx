@@ -27,7 +27,7 @@ const config = {
 }
 const Graph = () => {
   return (
-    <div className='flex w-full md:h- justify-center rounded bg-white p-6  '>
+    <div className='flex w-full justify-center rounded bg-white p-6'>
       <div className="p-8">
         <div className="w-40 m-auto">
          <Doughnut {...config}></Doughnut>

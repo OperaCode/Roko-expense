@@ -14,9 +14,9 @@ const HomeDash = () => {
   };
 
   return (
-    <section className="md:flex justify-between gap-5 items-center w-full">
+    <section className="md:flex  border gap-10 w-full">
       {/* Total Incomes and Funding */}
-      <div className="flex-1 space-y-">
+      <div className="flex-1 border p-3">
         <h1 className="text-white font-semibold text-3xl md:text-2xl p-2">
           Current Balance:
         </h1>
@@ -79,12 +79,12 @@ const HomeDash = () => {
       </div>
 
       {/* Expenses by Category Chart */}
-      <div className="flex-1 py-4">
+      <div className="flex-1 border p-3">
         <Graph />
       </div>
 
       {/* AddExpenseModal */}
-      {isModalOpen && <AddExpenseModal toggleModal={toggleModal} />} {/* Render modal conditionally */}
+      {isModalOpen && <AddExpenseModal toggleModal={toggleModal} />} 
     </section>
   );
 };

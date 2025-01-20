@@ -9,14 +9,26 @@ const AddExpenseModal = () => {
   };
 
   return (
-    <div className="flex items-center justify-center ">
+    <div className=" ">
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className=" p-8 rounded-lg">
-            <div className="bg-indigo-800 rounded-lg shadow-lg p-8 w-96 relative border-2 border-white">
+          <div className=" rounded-lg">
+            <div className="bg-indigo-800 rounded-lg shadow-lg p-6  border-2 border-white">
               {/* Modal Form */}
               <div className="space-y-4">
+                {/* Tile Input */}
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="category"
+                    className="block text-sm font-medium text-white mb-1"
+                  >
+                   Title:
+                  </label>
+                 <input type="text" id="title"
+                    className="w-full px-2 py-2 border-b-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-100 bg-indigo-500 text-white" />
+                </div>
+
                 {/* Category Input */}
                 <div className="flex flex-col">
                   <label
