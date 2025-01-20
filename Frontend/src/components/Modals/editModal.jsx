@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal_4 = () => {
+const editModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => setIsOpen(false);
@@ -73,4 +73,4 @@ const Modal_4 = () => {
   );
 };
 
-export default Modal_4;
+export default editModal;

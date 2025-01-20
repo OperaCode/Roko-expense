@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal_6 = () => {
+const addExpense = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => setIsOpen(false);
@@ -87,4 +87,4 @@ const Modal_6 = () => {
   );
 };
 
-export default Modal_6;
+export default addExpense;

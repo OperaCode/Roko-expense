@@ -8,16 +8,21 @@ import AboutUs from "./components/Pages/AboutUs.jsx";
 import Blog from "./components/Pages/Blog.jsx";
 import HowItWorks from "./components/Pages/HowItWorks.jsx";
 import TandC from "./components/Pages/TandC.jsx";
-import Modal_1 from "./components/Modals/Modal 1.jsx";
-import Modal_2 from "./components/Modals/Modal 2.jsx";
-import Modal_3 from "./components/Modals/Modal 3.jsx";
-import Modal_4 from "./components/Modals/Modal 4.jsx";
-import Modal_5 from "./components/Modals/Modal 5.jsx";
-import Modal_7 from "./components/Modals/Modal 7.jsx";
-import Modal_6 from "./components/Modals/Modal 6.jsx";
+import DownloadModal from "./components/Modals/downloadModal";
+import Modal_2 from "./components/Modals/sortByModal.jsx";
+import Modal_3 from "./components/Modals/iconModal.jsx";
+import Modal_4 from "./components/Modals/editModal.jsx";
+import deleteModal from "./components/Modals/deleteModal.jsx";
+import Modal_7 from "./components/Modals/navBarModal.jsx";
+import Modal_6 from "./components/Modals/addExpense.jsx";
 import ExpensePage from "./components/Pages/ExpensePage.jsx";
 import DashLayout from "./components/Layouts/DashLayout.jsx";
 import HomeDash from "./components/Dashboard/HomeDash.jsx";
+import ProfilePictureUpload from "./components/Layouts/ProfilePictureUpload.jsx";
+import Profile from "./components/Login/profilePicture.jsx";
+import RecentTransactionsCom from "./components/Layouts/recentTransaction.jsx";
+import RecentTransactions from "./components/Layouts/recentTransaction.jsx";
+import InvoiceView from "./components/Dashboard/invoiceView.jsx";
 
 function App() {
   const RenderRoute = () => (
@@ -65,8 +70,13 @@ function App() {
           </Layout>
         }
       />
-      <Route path="/modal" element={<Modal_7 />} />
+      <Route path="/modal" element={<DownloadModal />} />
       <Route path="/expense" element={<ExpensePage />} />
+      <Route path="/uploadpicture" element={<ProfilePictureUpload />} />
+      <Route path="/profilePicture" element={<Profile />} />
+      <Route path="/recent" element={<ExpensePage />} />
+      <Route path="/recents" element={<RecentTransactions />} />
+      <Route path="/invoice" element={<InvoiceView />} />
     </Routes>
   );
   return <> {RenderRoute()}</>;
