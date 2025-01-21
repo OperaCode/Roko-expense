@@ -14,9 +14,9 @@ const HomeDash = () => {
   };
 
   return (
-    <section className="md:flex  border gap-10 w-full">
+    <section className="md:flex gap-10 w-full">
       {/* Total Incomes and Funding */}
-      <div className="flex-1 border p-3">
+      <div className="flex-1  p-3">
         <h1 className="text-white font-semibold text-3xl md:text-2xl p-2">
           Current Balance:
         </h1>
@@ -79,7 +79,7 @@ const HomeDash = () => {
       </div>
 
       {/* Expenses by Category Chart */}
-      <div className="flex-1 border p-3">
+      <div className="flex-1 p-3">
         <Graph />
       </div>
 
