@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Graph from "../Layouts/Graph";
 import { IoAddCircle } from "react-icons/io5";
 import AddExpenseModal from "../Modals/addExpenseModal";
+import { Link } from "react-router-dom";
+
 
 
 const HomeDash = () => {
@@ -66,13 +68,15 @@ const HomeDash = () => {
             </div>
             {/* Add Expense Button */}
             <div className="w-2/4 flex m-auto p-3 justify-center">
-              <button
+     <Link to="/add_expense_modal">
+     <button
                 onClick={toggleModal} // Trigger the modal
                 className="bg-blue-900 items-center rounded justify-center w-full text-white p-2 flex"
               >
                 <IoAddCircle className="mr-1" />
                 Add Expense
               </button>
+     </Link>
             </div>
           </div>
         </div>

@@ -108,17 +108,21 @@ const History = () => {
             {/* Buttons */}
             <div className="flex justify-between items-center p-6 md:text-lg">
               <div className="p-4">
-                <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+               <Link to="/sort_modal">
+               <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                   <FaCaretDown />
                   Sort by Category
                 </button>
+               </Link>
               </div>
 
               <div className="p-4">
+                <Link to="/download_modal" >
                 <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                   <FaCaretDown />
                   Download
                 </button>
+                </Link>
               </div>
             </div>
 
@@ -142,7 +146,7 @@ const History = () => {
                     <th className="text-center text-base text-gray-700">
                       Amount
                     </th>
-                    <th className="text-center  text-base text-gray-700 md:hidden">
+                    <th className="text-center  text-base text-gray-700">
                       Action
                     </th>
                   </tr>
@@ -170,7 +174,7 @@ const History = () => {
                       <td className="text-center text-base p-2  text-green-500">
                         {transaction.amount}
                       </td>
-                      <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
+                      <td className="p-2 md:px-6 text-base  text-indigo-900">
                         <CiMenuKebab className="m-auto" />
                       </td>
                     </tr>

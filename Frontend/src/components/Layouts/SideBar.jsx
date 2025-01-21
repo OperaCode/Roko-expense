@@ -31,7 +31,7 @@ const SideBar = () => {
               </Link>
 
               <Link to="/history">
-              <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
+              <li className="hover:cursor-pointer lg:text-2xl">History</li>
               </Link>
 
               <Link to="/profile-setting">
