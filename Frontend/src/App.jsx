@@ -70,8 +70,13 @@ function App() {
           </Layout>
         }
       />
-      <Route path="/modal" element={<DownloadModal />} />
       <Route path="/dashboard/add-expense" element={<AddExpenseModal/>} />
+      <Route path="/history" element={<History/>}/>
+      <Route path="/profile-setting" element={<ProfileSettings/>}/>
+
+      
+
+      <Route path="/modal" element={<DownloadModal />} />
       {/* to be linked to the upload icon from profile settings page */}
       <Route path="/uploadpicture" element={<ProfilePictureUpload />} />
 
@@ -79,16 +84,14 @@ function App() {
       <Route path="/profilePicture" element={<Profile />} />
 
       {/* could be deleted---already built */}
-      <Route path="/recent" element={<ExpensePage />} />
+      {/* <Route path="/recent" element={<ExpensePage />} /> */}
 
         {/* could be deleted, already built */}
-      <Route path="/recents" element={<RecentTransactions />} />
+      {/* <Route path="/recents" element={<RecentTransactions />} /> */}
 
       {/* to be edited with dashlayout, and added to code */}
       <Route path="/invoice" element={<InvoiceView />} />
       
-      <Route path="/profile-setting" element={<ProfileSettings/>}/>
-      <Route path="/history" element={<History/>}/>
       
     </Routes>
   );
