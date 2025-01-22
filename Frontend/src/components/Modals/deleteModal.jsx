@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Modal_5 = () => {
+const deleteModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => setIsOpen(false);
@@ -41,4 +41,4 @@ const Modal_5 = () => {
   );
 };
 
-export default Modal_5;
+export default deleteModal;

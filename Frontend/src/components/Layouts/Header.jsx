@@ -2,6 +2,7 @@ import React from "react";
 import { IoMdMenu } from "react-icons/io";
 import logo from '../../assets/Roko-logo.png';
 import { Link, useLocation } from "react-router-dom";
+import anotherlogo from "../../assets/anotherlogo2.png"
 
 const navTitle = [
   {url: '/', title: 'Home'},
@@ -15,9 +16,9 @@ const Header = () => {
   return (
     <>
       <div className="p-4 flex justify-end lg:fixed w-full font-bodyFont">
-        <header className=" flex flex-row lg:w-full bg-blue-50 items-center justify-between py-4 px-6 rounded-3xl text-1xl">
-          <div className="hidden lg:block w-40">
-            <Link to='/'><img src={logo}  /></Link>
+        <header className=" flex flex-row lg:w-full bg-blue-50 items-center justify-between py-1 px-10 rounded-3xl text-1xl border border-black">
+          <div className=" lg:block mr-4  ">
+            <Link to='/'><img src={anotherlogo} className="w-40" /></Link>
           </div>
 
           <ul className="hidden lg:flex space-x-16">

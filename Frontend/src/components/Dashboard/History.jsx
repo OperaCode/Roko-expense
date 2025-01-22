@@ -8,63 +8,72 @@ const transactions = [
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$4,850.00",
   },
   {
     title: "PayPal",
     category: "TRavel and Expenses",
     method: "Credit Card",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$3,600.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: Date.now(),
+    date: new Date().toLocaleDateString()
+,
     amount: "$400.00",
   },
 ];
