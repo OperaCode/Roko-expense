@@ -86,10 +86,15 @@ function App() {
 
       {/* to be edited with dashlayout, and added to code */}
       <Route path="/invoice" element={<InvoiceView />} />
-      
-      <Route path="/profile-setting" element={<ProfileSettings/>}/>
-      <Route path="/history" element={<History/>}/>
-      
+            <Route path="/profile-setting" element={<ProfileSettings/>}/>
+      <Route
+        path="/history"
+        element={
+          <DashLayout>
+            <History />
+          </DashLayout>
+        }
+      />      
     </Routes>
   );
   return <> {RenderRoute()}</>;
