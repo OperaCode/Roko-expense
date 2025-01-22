@@ -24,10 +24,7 @@ const InvoiceView = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <SideBar />
-
+    <div className="flex min-h-screen font-bodyFont">
       {/* Main Content */}
       <div className="flex-1 bg-gradient-to-tl from-indigo-400 to-indigo-950 p-6 text-white">
       <div className="flex justify-between items-center mb-6">

@@ -14,7 +14,7 @@ const SideBar = () => {
   };
 
   return (
-    <aside className="bg-indigo-800 lg:w-1/4 border-2 rounded-2xl">
+    <aside className="bg-indigo-800 lg:w-1/4 border-2 rounded-2xl font-headerFont">
       <div className="lg:p-5 lg:h-screen rounded px-3">
         <div className="flex justify-between items-center lg:flex-col">
           {/* Logo */}

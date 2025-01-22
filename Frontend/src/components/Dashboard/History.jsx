@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { FaCaretDown } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import DownloadModal from "../Modals/downloadModal";
+import SortModal from "../Modals/SortModal";
+import IconModal from "../Modals/iconModal";
+import DeleteModal from "../Modals/deleteModal";
+import EditModal from "../Modals/editModal";
+// import SortModal from "../Modals/SortModal";
 
 const transactions = [
   {
@@ -80,8 +86,55 @@ const transactions = [
 
 const History = () => {
   const [transaction, setTransaction] = useState(transactions)
+
+  const [sortModalOpen, setSortModalOpen] = useState(false)
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+  const [editModalOpen, setEditModalOpen] = useState(false)
+
+  const openSortModal = () => {
+    setSortModalOpen(true)
+  }
+  
+  const closeSortModal = () => {
+    setSortModalOpen(false)
+  }
+
+  const openDownloadModal = () => {
+    setDownloadModalOpen(true)
+  }
+  
+  const closeDownloadModal = () => {
+    setDownloadModalOpen(false)
+  }
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+  
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
+  const openDeleteModal = () => {
+    setDeleteModalOpen(true)
+  }
+  
+  const closeDeleteModal = () => {
+    setDeleteModalOpen(false)
+  }
+
+  const openEditModal = () => {
+    setEditModalOpen(true)
+  }
+  
+  const closeEditModal = () => {
+    setEditModalOpen(false)
+  }
+
   return (
-      <section className="flex p-6 w-full">
+      <section className="flex p-6 w-full font-bodyFont">
         <div className="w-full rounded-lg mt-4 shadow-md">
           <div className=" bg-white h-screen p-4">
             <div className=" flex justify-center items-center">
@@ -90,14 +143,14 @@ const History = () => {
             {/* Buttons */}
             <div className="flex justify-between items-center py-4 md:text-lg text-white">
               <div className="p-4">
-                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900">
+                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900" onClick={openSortModal}>
                   <FaCaretDown size={20}/>
                   Sort by Category
                 </button>
               </div>
 
               <div className="p-4">
-                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900">
+                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900" onClick={openDownloadModal}>
                   {/* bg-indigo-700 text-white w-1/3 p-3 rounded hover:bg-indigo-900" */}
                   <FaCaretDown size={20}/>
                   Download
@@ -125,7 +178,7 @@ const History = () => {
                     <th className="text-center text-base text-gray-700">
                       Amount
                     </th>
-                    <th className="text-center  text-base text-gray-700 md:hidden">
+                    <th className="text-center  text-base text-gray-700">
                       Action
                     </th>
                   </tr>
@@ -153,8 +206,8 @@ const History = () => {
                       <td className="text-center text-base p-2  text-green-500">
                         {transaction.amount}
                       </td>
-                      <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
-                        <CiMenuKebab className="m-auto" />
+                      <td className="p-2 md:px-6 text-base text-indigo-900 cursor-pointer">
+                        <CiMenuKebab className="m-auto" onClick={openModal}/>
                       </td>
                     </tr>
                   ))}
@@ -163,6 +216,25 @@ const History = () => {
             </div>
           </div>
         </div>
+        {downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
+        {sortModalOpen && <SortModal onClose={closeSortModal}/>}
+{downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
+{sortModalOpen && <SortModal onClose={closeSortModal}/>}
+{modalOpen && (
+  <IconModal 
+    onClose={closeModal} 
+    onDelete={() => {
+      closeModal(); // Close the icon modal first
+      setDeleteModalOpen(true); // Then open delete modal
+    }} 
+    onEdit={() => {
+      closeModal(); // Close the icon modal first
+      setEditModalOpen(true); // Then open edit modal
+    }}
+  />
+)}
+{deleteModalOpen && <DeleteModal onClose={closeDeleteModal}/>}
+{editModalOpen && <EditModal onClose={closeEditModal}/>}
       </section>
   );
 };
