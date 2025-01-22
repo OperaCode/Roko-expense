@@ -35,7 +35,7 @@ const DashLayout = ({ children }) => {
         </div>
 
         {/* Recent Transactions Section */}
-        <Recent />
+        {/* <Recent /> */}
       </div>
     </div>
   );
