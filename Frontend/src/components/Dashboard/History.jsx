@@ -10,72 +10,63 @@ const transactions = [
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "PayPal",
     category: "TRavel and Expenses",
     method: "Credit Card",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$3,600.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
 ];
@@ -103,25 +94,29 @@ const History = () => {
 
           <div className=" bg-white h-screen p-4">
             <div className=" flex text-white justify-center items-center">
-              <input type="text" className="w-2/4 p-3 h-10 rounded text-white bg-indigo-200"placeholder="Search by Keyword"/>
+              <input
+                type="text"
+                className="w-2/4 p-3 h-10 rounded text-white bg-indigo-200"
+                placeholder="Search by Keyword"
+              />
             </div>
             {/* Buttons */}
             <div className="flex justify-between items-center p-6 md:text-lg">
               <div className="p-4">
-               <Link to="/sort_modal">
-               <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                  <FaCaretDown />
-                  Sort by Category
-                </button>
-               </Link>
+                <Link to="/sort_modal">
+                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    <FaCaretDown />
+                    Sort by Category
+                  </button>
+                </Link>
               </div>
 
               <div className="p-4">
-                <Link to="/download_modal" >
-                <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                  <FaCaretDown />
-                  Download
-                </button>
+                <Link to="/download_modal">
+                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    <FaCaretDown />
+                    Download
+                  </button>
                 </Link>
               </div>
             </div>
@@ -146,8 +141,14 @@ const History = () => {
                     <th className="text-center text-base text-gray-700">
                       Amount
                     </th>
-                    <th className="text-center  text-base text-gray-700">
-                      Action
+                    <th className="text-center  text-base text-gray-700 ">
+                      {/* Clickable button */}
+                      <button
+                        onClick={() => handleAction(transaction.title)}
+                        className="text-white bg-blue-500 p-2 rounded-lg hover:bg-blue-600"
+                      >
+                        Action
+                      </button>
                     </th>
                   </tr>
                 </thead>
@@ -175,7 +176,9 @@ const History = () => {
                         {transaction.amount}
                       </td>
                       <td className="p-2 md:px-6 text-base  text-indigo-900">
-                        <CiMenuKebab className="m-auto" />
+                       <Link to="/icon_modal">
+                       <CiMenuKebab className="m-auto" />
+                       </Link>
                       </td>
                     </tr>
                   ))}

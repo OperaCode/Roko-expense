@@ -16,18 +16,49 @@ const AddExpenseModal = () => {
           <div className="p-8 rounded-lg">
             <div className="bg-indigo-800 rounded-lg shadow-lg p-8 w-96 relative border-2 border-white">
               {/* Cancel Icon */}
-             <Link to="/dashboard">
-             <button
-                onClick={closeModal}
-                className="absolute top-4 left-4 text-white text-xl hover:text-gray-300 focus:outline-none"
-              >
-                ✕
-              </button>
-             </Link>
-             <br />
+              {/* <Link to="/dashboard">
+                <button
+                  onClick={closeModal}
+                  className="absolute top-4 left-4 text-white text-xl hover:text-gray-300 focus:outline-none"
+                >
+                  ✕
+                </button>
+              </Link> */}
+
+               {/* Back Button */}
+            <button
+              className="flex items-center space-x-2 text-indigo-100 hover:text-indigo-500 focus:outline-none"
+              onClick={() => window.history.back()}
+            >
+              {/* <ion-icon name="arrow-back-outline" size="large"></ion-icon> */}
+              <span>✕</span>
+            </button>
+
+
+
+
+
+
+              <br />
 
               {/* Modal Form */}
               <div className="space-y-4">
+                {/* Title Input */}
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="title"
+                    className="block text-sm font-medium text-white mb-1"
+                  >
+                    Title:
+                  </label>
+                  <input
+                    id="title"
+                    type="text"
+                    className="w-full px-2 py-2 border-b-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-100 bg-indigo-500 text-white"
+                    placeholder="Enter expense title"
+                  />
+                </div>
+
                 {/* Category Input */}
                 <div className="flex flex-col">
                   <label
@@ -105,12 +136,14 @@ const AddExpenseModal = () => {
                 </button>
                 <Link to="/dashboard">
                   <button
-                    onClick={closeModal}
+                    onClick={() => window.history.back()}
                     className="px-4 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-700"
                   >
                     Cancel
                   </button>
                 </Link>
+
+
               </div>
             </div>
           </div>

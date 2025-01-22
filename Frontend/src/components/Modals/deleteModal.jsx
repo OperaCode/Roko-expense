@@ -12,7 +12,7 @@ const deleteModal = () => {
           <div className="bg-blue-300 rounded-lg shadow-lg p-10 w-60 relative">
             {/* Close Button */}
             <button
-              onClick={closeModal}
+               onClick={() => window.history.back()}
               className="absolute top-2 left-3 text-gray-500 hover:text-gray-700 text-2xl font-bold"
             >
               &times;
@@ -28,7 +28,7 @@ const deleteModal = () => {
                 Delete
               </button>
               <button
-                onClick={closeModal}
+                 onClick={() => window.history.back()}
                 className="px-4 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800"
               >
                 Close
