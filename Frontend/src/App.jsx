@@ -85,7 +85,11 @@ function App() {
       <Route path="/recents" element={<RecentTransactions />} />
 
       {/* to be edited with dashlayout, and added to code */}
-      <Route path="/invoice" element={<InvoiceView />} />
+      <Route path="/invoice" element={
+      <DashLayout>
+      <InvoiceView />
+    </DashLayout>
+    } />
             <Route path="/profile-setting" element={<ProfileSettings/>}/>
       <Route
         path="/history"
