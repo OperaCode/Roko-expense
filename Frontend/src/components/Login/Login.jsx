@@ -67,7 +67,7 @@ const Login = () => {
               </div>
 
               <div className="flex justify-center pt-10">
-                <button className="bg-indigo-700 text-white p-3 w-2/3 font-semibold rounded">
+                <button className="bg-indigo-700 hover:bg-indigo-900 text-white p-3 w-2/3 font-semibold rounded">
                   Login
                 </button>
               </div>

@@ -18,14 +18,6 @@ const EditModal = ({ onClose }) => {
             className="bg-blue-300 rounded-lg shadow-lg p-10 w-70 relative"
             onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
           >
-            {/* Add close button at top-right */}
-            <button
-              onClick={onClose}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-3xl font-bold"
-            >
-              &times;
-            </button>
-            <br />
             <div className="space-y-4">
               {/* Title Input */}
               <div>

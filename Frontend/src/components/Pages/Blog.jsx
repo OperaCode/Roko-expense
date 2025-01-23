@@ -1,30 +1,33 @@
 import React from 'react'
-import announcement from './../../assets/Announcement.png';
-import cityStudy from './../../assets/City-Study.png';
-import companyLife from './../../assets/Company-Life.png';
+import announcement from './../../assets/announcements.png';
+import cityStudy from './../../assets/f-insight.png';
+import companyLife from './../../assets/com-culture.png';
+import techInno from './../../assets/techy.png';
+import update from './../../assets/update.png';
+import offer from './../../assets/offer.png';
 import Header from '../Layouts/Header';
 
 const Blog = () => {
   return (
     <section className="bg-bgColor">
   <Header />
-  <div className="container mx-auto px-4 py-8 md:py-16 lg:py-40">
+  <div className="container mx-auto px-4 pt-8 md:pt-16 lg:pt-40">
     {/* Header Section */}
     <div className="flex flex-col items-center mb-8 md:mb-16 space-y-6">
       {/* Title and Description */}
-      <div className="w-full sm:w-10/12 md:w-full lg:w-9/12 text-white">
+      <div className="w-full sm:w-10/12 md:w-full lg:w-11/12 text-white">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold font-headerFont">BLOG</h1>
         <p className="text-sm md:text-xl lg:text-2xl font-medium mt-4 font-bodyFont">
-          Explore insightful articles, tips, and industry-leading financial news. Take a deep dive into what we do best- Expense Management, financial processes, spend optimization, and much more
+          Discover expert insights, practical tips, and the latest financial trends. Explore everything from expense management strategies to budgeting techniques and financial well-being. Stay informed with success stories, actionable advice, and cutting-edge financial tools to help you take control of your finances.
         </p>
       </div>
 
       {/* Category Buttons */}
       <div className="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-6">
-        {['Announcement', 'City Study', 'Company Life', 'Engineering', 'Product Info', 'Offers'].map((category) => (
+        {["Announcements", "Financial Insights", "Company Culture", "Tech & Innovation", "Product Updates", "Exclusive Offers"].map((category) => (
           <button
             key={category}
-            className="bg-indigo-900 px-4 md:px-4 lg:px-6 py-2 md:py-3 text-xs md:text-base lg:text-lg font-bodyFont rounded-xl text-white"
+            className="bg-indigo-900 px-2 md:px-3 lg:px-4 py-1 md:py-2 text-xs md:text-base lg:text-lg font-bodyFont rounded-xl text-white"
           >
             {category}
           </button>
@@ -33,24 +36,24 @@ const Blog = () => {
     </div>
 
     {/* Blog Posts */}
-    <div className="space-y-12 md:space-y-24 lg:space-y-28">
+    <div className="space-y-6 md:space-y-8 lg:space-y-12">
       {[
-        { title: 'Announcement', image: announcement, reverse: true },
-        { title: 'City Study', image: cityStudy, reverse: false },
-        { title: 'Company Life', image: companyLife, reverse: true },
-        { title: 'Engineering', image: announcement, reverse: false },
-        { title: 'Product Info', image: cityStudy, reverse: true },
-        { title: 'Offers', image: companyLife, reverse: false }
+        { title: "Announcements", image: announcement, text: "Stay informed with our latest company announcements, including new feature rollouts, partnerships, and important updates to our services that will help you stay ahead in managing your finances." },
+        { title: "Financial Insights", image: cityStudy, text: "Unlock expert financial advice and insights tailored to help you optimize your expenses, understand market trends, and make data-driven financial decisions with confidence." },
+        { title: "Company Culture", image: companyLife, text: "Get an inside look at our company values, work culture, and the amazing people behind our innovative financial solutions that drive our mission forward." },
+        { title: "Tech & Innovation", image: techInno, text: "Explore the latest advancements in financial technology, learn how we incorporate cutting-edge solutions to improve your experience, and stay ahead with industry innovations." },
+        { title: "Product Updates", image: update, text: "Stay up-to-date with our newest product features, enhancements, and updates designed to provide you with an even better expense management experience." },
+        { title: "Exclusive Offers", image: offer, text: "Take advantage of our limited-time promotions and special offers that are exclusively available to our valued users to help you save more." }
       ].map((post, index) => (
         <div
           key={post.title}
           className={`flex flex-col items-center gap-12 md:gap-16 lg:gap-24 text-white
-            ${post.reverse 
+            ${index % 2 === 0 
               ? 'sm:flex-col-reverse md:flex-row' 
               : 'sm:flex-col md:flex-row'}
             justify-center`}
         >
-          {!post.reverse && (
+          {index % 2 !== 0 && (
             <div>
               <img 
                 src={post.image} 
@@ -65,11 +68,11 @@ const Blog = () => {
               {post.title}
             </h2>
             <p className="font-bodyFont text-base md:text-base lg:text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa eius nihil natus iusto error magnam iste maiores minus ullam, voluptatem expedita! Autem eligendi perspiciatis quasi, porro officia aspernatur similique laboriosam, magni odit, aliquid quidem animi tempora nam dignissimos totam. Ipsum id veniam dolor similique commodi facilis accusantium ex non sequi!
+              {post.text}
             </p>
           </div>
           
-          {post.reverse && (
+          {index % 2 === 0 && (
             <div>
               <img 
                 src={post.image} 

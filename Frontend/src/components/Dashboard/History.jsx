@@ -7,6 +7,7 @@ import SortModal from "../Modals/SortModal";
 import IconModal from "../Modals/iconModal";
 import DeleteModal from "../Modals/deleteModal";
 import EditModal from "../Modals/editModal";
+import { IoSearch } from "react-icons/io5";
 // import SortModal from "../Modals/SortModal";
 
 const transactions = [
@@ -137,8 +138,13 @@ const History = () => {
       <section className="flex p-6 w-full font-bodyFont">
         <div className="w-full rounded-lg mt-4 shadow-md">
           <div className=" bg-white h-screen p-4">
-            <div className=" flex justify-center items-center">
-              <input type="text" className="bg-indigo-100 p-4 w-full rounded-md"placeholder="Search by Keyword"/>
+            <div className="flex justify-center items-center">
+            <div className="bg-indigo-100 p-4 w-full rounded-md flex gap-4">
+              <div className="flex items-center text-zinc-400 cursor-pointer hover:text-zinc-600 transition-all">
+              <IoSearch />
+              </div>
+              <input type="text" className="bg-transparent"placeholder="Search by Keyword"/>
+            </div>
             </div>
             {/* Buttons */}
             <div className="flex justify-between items-center py-4 md:text-lg text-white">
