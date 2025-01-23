@@ -1,5 +1,4 @@
 import React from "react";
-import SideBar from "../Layouts/SideBar";
 import { Link } from "react-router-dom";
 
 
@@ -38,16 +37,6 @@ const InvoiceView = () => {
             </button>
 
             {/* Profile Section */}
-            <div className="flex items-center space-x-3">
-              <img
-                src="https://via.placeholder.com/40"
-                alt="Profile"
-                className="w-10 h-10 rounded-full border-2 border-indigo-500"
-              />
-              <button className="text-indigo-500 hover:text-indigo-700 focus:outline-none">
-                <ion-icon name="create-outline" size="large"></ion-icon>
-              </button>
-            </div>
           </div>
         <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
          

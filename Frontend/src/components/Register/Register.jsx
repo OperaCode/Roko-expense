@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
 import PasswordInput from './PasswordInput';
 import { GoArrowLeft } from 'react-icons/go';
 
 const Register = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <main className="bg-indigo-500 background font-bodyFont">
           <div className="p-14">
@@ -56,7 +62,7 @@ const Register = () => {
                     </label>
                     <input
                       type="text"
-                      id="fname"
+                      id="firstName"
                       name='firstName'
                       placeholder="Please fill your first name"
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
@@ -69,7 +75,7 @@ const Register = () => {
                     </label>
                     <input
                       type="text"
-                      id="fname"
+                      id="lastName"
                       name='lastName'
                       placeholder="Please fill your last name"
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
@@ -124,6 +130,7 @@ const Register = () => {
                         type="checkbox" 
                         className='cursor-pointer'
                         checked={isChecked}
+                        onChange={handleCheckboxChange}
                         />
                     <p>I agree to the <Link to='/terms-and-conditions'><span className='text-indigo-700 hover:text-indigo-900'>terms & conditions</span></Link> and privacy policy of SpendSmart</p>
                   </div>
