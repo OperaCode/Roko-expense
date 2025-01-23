@@ -78,9 +78,9 @@ const History = () => {
         <div className="w-full rounded-lg mt-4 shadow-md">
           {/* Header */}
           <div className="flex items-center justify-end gap-4 p-2">
-            <h1 className="text-2xl md:text-3xl font-bold text-white">
+            <h3 className="text-2xl md:text-3xl font-bold text-white">
               Welcome Cheryl,
-            </h1>
+            </h3>
             <div className="w-12 h-12">
               <Link to="/dashboard">
                 <img
@@ -91,8 +91,7 @@ const History = () => {
               </Link>
             </div>
           </div>
-
-          <div className=" bg-white h-screen p-4">
+          <div className=" bg-white h-screen p-4 rounded">
             <div className=" flex text-white justify-center items-center">
               <input
                 type="text"
@@ -100,22 +99,14 @@ const History = () => {
                 placeholder="Search by Keyword"
               />
             </div>
+
             {/* Buttons */}
             <div className="flex justify-between items-center p-6 md:text-lg">
               <div className="p-4">
                 <Link to="/sort_modal">
-                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600">
                     <FaCaretDown />
                     Sort by Category
-                  </button>
-                </Link>
-              </div>
-
-              <div className="p-4">
-                <Link to="/download_modal">
-                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                    <FaCaretDown />
-                    Download
                   </button>
                 </Link>
               </div>
@@ -132,7 +123,7 @@ const History = () => {
                     <th className="text-center text-base  text-gray-700 ">
                       Category
                     </th>
-                    <th className="text-center text-base text-gray-700 hidden md:block">
+                    <th className="text-center text-base text-gray-700  md:block">
                       Transaction Method
                     </th>
                     <th className="text-center text-base  text-gray-700">
@@ -141,14 +132,8 @@ const History = () => {
                     <th className="text-center text-base text-gray-700">
                       Amount
                     </th>
-                    <th className="text-center  text-base text-gray-700 ">
-                      {/* Clickable button */}
-                      <button
-                        onClick={() => handleAction(transaction.title)}
-                        className="text-white bg-blue-500 p-2 rounded-lg hover:bg-blue-600"
-                      >
-                        Action
-                      </button>
+                    <th className="text-center text-base text-gray-700">
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -161,19 +146,29 @@ const History = () => {
                       } hover:bg-gray-100 `}
                     >
                       <td className="text-center text-base p-2 text-gray-800">
+                        <Link to="/icon_modal">
                         {transaction.title}
+                        </Link>
                       </td>
                       <td className="text-center text-base p-2 text-gray-800 ">
+                        <Link to="/icon_modal">
                         {transaction.category}
+                        </Link>
                       </td>
                       <td className="text-center text-base p-2 hidden md:block text-gray-600">
+                        <Link to="/icon_modal">
                         {transaction.method}
+                        </Link>
                       </td>
                       <td className="text-center text-base p-2  text-gray-600">
+                        <Link to="/icon_modal">
                         {transaction.date}
+                        </Link>
                       </td>
                       <td className="text-center text-base p-2  text-green-500">
+                        <Link to="/icon_modal">
                         {transaction.amount}
+                        </Link>
                       </td>
                       <td className="p-2 md:px-6 text-base  text-indigo-900">
                        <Link to="/icon_modal">
