@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import "../Login/Login.css"
-import { GoArrowLeft } from "react-icons/go";
-import PasswordInput from './PasswordInput';
+import React, { useState } from 'react';
+import './Register.css';
 import { Link } from 'react-router-dom';
+import PasswordInput from './PasswordInput';
+import { GoArrowLeft } from 'react-icons/go';
 
 const Register = () => {
-    const [isChecked, setIsChecked] = useState(false);
-  
-    const handleCheckboxChange = () => {
-      setIsChecked(!isChecked);
-    };
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   return (
     <main className="bg-indigo-500 background font-bodyFont">
@@ -27,7 +27,12 @@ const Register = () => {
                   <p className="text-2xl lg:w-10/12">
                     Lets get you started on your transaction journey.
                   </p>
-                  <p className='font-bodyFont'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate delectus omnis asperiores consequuntur nulla dicta voluptas aspernatur doloremque. Ab, laborum!</p>
+                  <ul className="flex flex-col gap-2 list-disc ml-5">
+                    <li className="font-bodyFont text-sm md:text-base"><span>📊</span> Track Your Spending in Real-Time.</li>
+                    <li className="font-bodyFont text-sm md:text-base"><span>✅</span> Select categories for all expenses.</li>
+                    <li className="font-bodyFont text-sm md:text-base"><span>🔒</span> Secure and Private.</li>
+                  </ul>
+                  <p className='font-bodyFont'></p>
                 </div>
     
                 <div className="">
@@ -39,9 +44,9 @@ const Register = () => {
               {/* form Card */}
               <div className=" bg-white p-6 -mt-8 rounded md:flex-1">
                 <div className="text-center flex flex-col gap-4">
-                  <h1 className="text-4xl font-bold font-headerFont">Create an account</h1>
+                  <h1 className="md:text-3xl text-2xl font-bold font-headerFont">Take Control of Your Finances Today!</h1>
                   <p>
-                    Please fill in the following details to get started with us
+                  Track expenses and achieve your financial goals with ease.
                   </p>
                 </div><br />
 
@@ -57,7 +62,8 @@ const Register = () => {
                     </label>
                     <input
                       type="text"
-                      id="fname"
+                      id="firstName"
+                      name='firstName'
                       placeholder="Please fill your first name"
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
                       required
@@ -69,7 +75,8 @@ const Register = () => {
                     </label>
                     <input
                       type="text"
-                      id="fname"
+                      id="lastName"
+                      name='lastName'
                       placeholder="Please fill your last name"
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
                       required
@@ -82,6 +89,7 @@ const Register = () => {
                     <input
                       type="email"
                       id="email"
+                      name='email'
                       placeholder="Please fill your email"
                       className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900"
                       required
@@ -96,6 +104,7 @@ const Register = () => {
                     <PasswordInput
                       type="password"
                       id="password"
+                      name='password'
                       placeholder="Enter password"
                       required
                     />
@@ -109,6 +118,7 @@ const Register = () => {
                     <PasswordInput
                       type="password"
                       id="password"
+                       name='password2'
                       placeholder="Enter password"
                       required
                     />
@@ -122,7 +132,7 @@ const Register = () => {
                         checked={isChecked}
                         onChange={handleCheckboxChange}
                         />
-                    <p>I agree to the <Link to='/terms-and-conditions'><span className='text-indigo-700 hover:text-indigo-900'>terms & conditions</span></Link> and privacy policy of RokoApp</p>
+                    <p>I agree to the <Link to='/terms-and-conditions'><span className='text-indigo-700 hover:text-indigo-900'>terms & conditions</span></Link> and privacy policy of SpendSmart</p>
                   </div>
 
                   <div className="flex justify-center pt-2">
@@ -133,7 +143,7 @@ const Register = () => {
                       : 'bg-indigo-300 text-gray-100 cursor-not-allowed'}`}
                       disabled={!isChecked}
                       >
-                      Sign Up
+                     Create Account
                     </button>
                   </div>
                 </form>

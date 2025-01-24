@@ -1,5 +1,4 @@
 import React from "react";
-import SideBar from "../Layouts/SideBar";
 import { Link } from "react-router-dom";
 
 const InvoiceView = () => {

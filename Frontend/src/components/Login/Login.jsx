@@ -24,7 +24,7 @@ const Login = () => {
             </div>
 
             <div className="">
-              <p className="mb-4">New to RokoApp?</p>
+              <p className="mb-4">New to SpendSmart?</p>
              <Link to='/register'><p className="bg-indigo-200 text-black rounded w-1/2 p-3 text-center hover:cursor-pointer font-semibold">Sign Up</p></Link>
             </div>
           </div>
@@ -32,7 +32,7 @@ const Login = () => {
           {/* form Card */}
           <div className=" bg-white p-6 rounded md:flex-1">
             <div className="text-center ">
-              <h1 className="text-4xl font-bold font-headerFont">Login</h1><br />
+              <h1 className="md:text-3xl text-2xl font-bold font-headerFont">Let's Get You Back In</h1><br />
               <p>
                 Please fill in the following details to log into your acount
               </p>
@@ -67,7 +67,7 @@ const Login = () => {
               </div>
 
               <div className="flex justify-center pt-10">
-                <button className="bg-indigo-700 text-white p-3 w-2/3 font-semibold rounded">
+                <button className="bg-indigo-700 hover:bg-indigo-900 text-white p-3 w-2/3 font-semibold rounded">
                   Login
                 </button>
               </div>

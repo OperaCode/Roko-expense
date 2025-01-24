@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Graph from "../Layouts/Graph";
 import { IoAddCircle } from "react-icons/io5";
+import Recent from "../Layouts/Recent";
 import AddExpenseModal from "../Modals/addExpenseModal";
 import { Link } from "react-router-dom";
 
@@ -16,14 +17,16 @@ const HomeDash = () => {
   };
 
   return (
-    <section className="md:flex justify-between gap-5 items-center w-full">
+    <section  className="lg:flex lg:flex-col bg-indigo-600 p-1 lg:gap-4" >
+        <div className="md:flex justify-between gap-5 items-center font-bodyFont w-full">
       {/* Total Incomes and Funding */}
-      <div className="flex-1 space-y-">
-        <h1 className="text-white font-semibold text-3xl md:text-2xl p-2">
-          Current Balance:
-        </h1>
-        <div className="p-2 bg-white rounded-lg shadow-md w-1/2">
-          <p className="text-gray-600 text-sm md:text-xs">Total Expenses</p>
+      <div className=" flex-1 space-y-3 ">
+      <h1 className="text-white font-semibold text-3xl md:text-2xl p-1">Current Balance:</h1>
+        <div className="p-4 bg-white rounded-lg shadow-md w-1/2 ">
+        
+          <p className="text-gray-600 text-sm md:text-xs">
+            Total Expenses
+          </p>
           <h2 className="text-2xl font-bold text-gray-700">$9,450.00</h2>
         </div>
 
@@ -83,12 +86,13 @@ const HomeDash = () => {
       </div>
 
       {/* Expenses by Category Chart */}
-      <div className="flex-1 py-4">
+      <div className="flex-1 p-3">
         <Graph />
       </div>
-
+    </div>
+      <div><Recent /></div>
       {/* AddExpenseModal */}
-      {isModalOpen && <AddExpenseModal toggleModal={toggleModal} />} {/* Render modal conditionally */}
+      {isModalOpen && <AddExpenseModal toggleModal={toggleModal} />} 
     </section>
   );
 };

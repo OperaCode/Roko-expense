@@ -3,6 +3,7 @@ import { IoMdMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FaWindowClose } from "react-icons/fa";
 import logo from "../../assets/Roko-logo.png";
+import anotherlogo2 from "../../assets/anotherlogo2.png"
 
 const SideBar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,13 +14,13 @@ const SideBar = () => {
   };
 
   return (
-    <aside className="bg-indigo-800 lg:w-1/4 p-2 pt-8 border-2 rounded-2xl">
+    <aside className="bg-indigo-800 lg:w-1/4 border-2 rounded-2xl font-headerFont">
       <div className="lg:p-5 lg:h-screen rounded px-3">
         <div className="flex justify-between items-center lg:flex-col">
           {/* Logo */}
-          <div className="lg:mb-8">
+          <div className=" flex items-center px-4 size-40">
             <Link to="/dashboard">
-              <img src={logo} alt="Logo" className="hover:cursor-pointer" />
+              <img src={anotherlogo2} alt="Logo" className="hover:cursor-pointer size-" />
             </Link>
           </div>
 
@@ -65,22 +66,16 @@ const SideBar = () => {
             </button>
             {/* Modal Menu Items */}
             <ul className="space-y-8 text-2xl p-4">
-              <Link path="/dashboard">
-                <li className="hover:text-gray-400 cursor-pointer">
-                  Dashboard
-                </li>
+              <Link to="/dashboard">
+                <li className="hover:text-gray-400 cursor-pointer">Dashboard</li>
               </Link>
 
-              <Link path="/history">
-                <li className="hover:text-gray-400 cursor-pointer">
-                  Invoice
-                </li>
+              <Link to="/history">
+                <li className="hover:text-gray-400 cursor-pointer">Invoice</li>
               </Link>
 
-              <Link path="/profile-setting">
-                <li className="hover:text-gray-400 cursor-pointer">
-                  Profile Settings
-                </li>
+              <Link to="/profile-setting">
+                <li className="hover:text-gray-400 cursor-pointer">Profile Settings</li>
               </Link>
             </ul>
           </div>

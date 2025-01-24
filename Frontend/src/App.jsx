@@ -13,10 +13,6 @@ import DeleteModal from "./components/Modals/DeleteModal.jsx";
 import ExpensePage from "./components/Pages/ExpensePage.jsx";
 import DashLayout from "./components/Layouts/DashLayout.jsx";
 import HomeDash from "./components/Dashboard/HomeDash.jsx";
-import ProfilePictureUpload from "./components/Layouts/ProfilePictureUpload.jsx";
-import Profile from "./components/Login/profilePicture.jsx";
-import RecentTransactionsCom from "./components/Layouts/recentTransaction.jsx";
-import RecentTransactions from "./components/Layouts/recentTransaction.jsx";
 import InvoiceView from "./components/Dashboard/invoiceView.jsx";
 import ProfileSettings from "./components/Dashboard/ProfileSettings.jsx";
 import History from "./components/Dashboard/History.jsx";
@@ -90,8 +86,20 @@ function App() {
       <Route path="/recents" element={<RecentTransactions />} />
       <Route path="/invoice" element={<InvoiceView />} />
       <Route path="/profile-setting" element={<ProfileSettings/>}/>
-      <Route path="/history" element={<History/>}/>
-      
+      <Route path="/invoice" element={
+      <DashLayout>
+      <InvoiceView />
+    </DashLayout>
+    } />
+            <Route path="/profile-setting" element={<ProfileSettings/>}/>
+      <Route
+        path="/history"
+        element={
+          <DashLayout>
+            <History />
+          </DashLayout>
+        }
+      />
     </Routes>
   );
   return <> {RenderRoute()}</>;

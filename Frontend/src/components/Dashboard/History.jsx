@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
-import SideBar from "../Layouts/SideBar";
 import { FaCaretDown } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import image from "../../assets/picture.jpeg";
+import DownloadModal from "../Modals/downloadModal";
+import SortModal from "../Modals/SortModal";
+import IconModal from "../Modals/iconModal";
+import DeleteModal from "../Modals/deleteModal";
+import EditModal from "../Modals/editModal";
+import { IoSearch } from "react-icons/io5";
+// import SortModal from "../Modals/SortModal";
 
 const transactions = [
   {
@@ -70,11 +75,58 @@ const transactions = [
     amount: "$400.00",
   },
 ];
+
 const History = () => {
+  const [transaction, setTransaction] = useState(transactions)
+
+  const [sortModalOpen, setSortModalOpen] = useState(false)
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+  const [editModalOpen, setEditModalOpen] = useState(false)
+
+  const openSortModal = () => {
+    setSortModalOpen(true)
+  }
+  
+  const closeSortModal = () => {
+    setSortModalOpen(false)
+  }
+
+  const openDownloadModal = () => {
+    setDownloadModalOpen(true)
+  }
+  
+  const closeDownloadModal = () => {
+    setDownloadModalOpen(false)
+  }
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+  
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
+  const openDeleteModal = () => {
+    setDeleteModalOpen(true)
+  }
+  
+  const closeDeleteModal = () => {
+    setDeleteModalOpen(false)
+  }
+
+  const openEditModal = () => {
+    setEditModalOpen(true)
+  }
+  
+  const closeEditModal = () => {
+    setEditModalOpen(false)
+  }
+
   return (
-    <div className="lg:flex items-cent bg-indigo-600 p-1">
-      <SideBar />
-      <div className="flex p-6 w-full">
+      <section className="flex p-6 w-full font-bodyFont">
         <div className="w-full rounded-lg mt-4 shadow-md">
           {/* Header */}
           <div className="flex items-center justify-end gap-4 p-2">
@@ -101,7 +153,7 @@ const History = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex justify-between items-center p-6 md:text-lg">
+            <div className="flex justify-between items-center py-4 md:text-lg text-white">
               <div className="p-4">
                 <Link to="/sort_modal">
                   <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600">
@@ -138,7 +190,7 @@ const History = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.map((transaction, index) => (
+                  {transaction.map((transaction, index) => (
                     <tr
                       key={index}
                       className={`${
@@ -182,8 +234,26 @@ const History = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        {downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
+        {sortModalOpen && <SortModal onClose={closeSortModal}/>}
+{downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
+{sortModalOpen && <SortModal onClose={closeSortModal}/>}
+{modalOpen && (
+  <IconModal 
+    onClose={closeModal} 
+    onDelete={() => {
+      closeModal(); // Close the icon modal first
+      setDeleteModalOpen(true); // Then open delete modal
+    }} 
+    onEdit={() => {
+      closeModal(); // Close the icon modal first
+      setEditModalOpen(true); // Then open edit modal
+    }}
+  />
+)}
+{deleteModalOpen && <DeleteModal onClose={closeDeleteModal}/>}
+{editModalOpen && <EditModal onClose={closeEditModal}/>}
+      </section>
   );
 };
 

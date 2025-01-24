@@ -21,8 +21,7 @@ const LandingPage = () => {
             </h1>
             <br />
             <p className="font-bodyFont">
-              Mananging money is hard, but you don't have to it alone. Roko
-              empowers you and manage your expenses.
+              Mananging money is hard, but you don't have to it alone. SpendSmart empowers you and manage your expenses.
             </p>
           </div>
           <div className="flex justify-center mt-12">
@@ -31,8 +30,8 @@ const LandingPage = () => {
         </section>
       </main>
 
-      <section className="py-8 px-16 flex flex-col gap-4">
-        <h2 className="font-bold text-4xl font-headerFont">How Roko Works</h2>
+      <section className="py-8 px-16 flex flex-col gap-4 bg-indigo-200">
+        <h2 className="font-bold text-4xl font-headerFont">How SpendSmart Works</h2>
 
         <div className="md:flex ">
 
@@ -41,48 +40,45 @@ const LandingPage = () => {
             {/* image and description container */}
             <div className="flex gap-2 ">
               {/* image container beside words */}
-              <div className="Image-container">
+              <div className="w-12 md:w-24 lg:w-36 h-auto object-cover">
                 <img src={laptopcafe} alt="" />
               </div>
 
               {/* Text Container for words beside images */}
               <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Sign Up for Free</h3>
+                <h3 className="text-md font-semibold font-headerFont">Log into your account</h3>
                 <p className="font-bodyFont">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                  corporis necessitatibus totam consectetur at atque!
+                  Create an account and log in to access your expense dashboard
                 </p>
               </div>
             </div>
 
-            <div className="flex gap-5">
+            <div className="flex gap-2">
               {/* image container beside words */}
-              <div className="Image-container">
+              <div className="w-12 md:w-24 lg:w-48 h-auto object-cover">
                 <img src={holdingPhone} alt="" />
               </div>
 
               {/* Text Container for words beside images */}
               <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Make a Monthly Plan</h3>
+                <h3 className="text-md font-semibold font-headerFont">Add Expenses</h3>
                 <p className="font-bodyFont">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                  corporis necessitatibus totam consectetur at atque!
+                  Create expenses of your choice while categorizing with their respective methods
                 </p>
               </div>
             </div>
 
-            <div className="flex gap-2 ">
+            <div className="flex gap-8">
               {/* image container beside words */}
-              <div className="Image-container">
+              <div className="w-12 md:w-24 lg:w-36 h-auto object-cover">
                 <img src={laptopterrace} alt="" />
               </div>
 
               {/* Text Container for words beside images */}
               <div className="flex flex-col gap-1">
-                <h3 className="text-md font-semibold font-headerFont">Enjoy less Stress</h3>
+                <h3 className="text-md font-semibold font-headerFont">Invoice and Reports</h3>
                 <p className="font-bodyFont">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                  corporis necessitatibus totam consectetur at atque!
+                View your spending habits through charts and download invoices for use.
                 </p>
               </div>
             </div>

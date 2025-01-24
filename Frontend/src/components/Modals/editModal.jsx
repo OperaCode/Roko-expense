@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 
-const editModal = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const closeModal = () => setIsOpen(false);
+const EditModal = ({ onClose }) => {
+  // Handle clicking outside the modal
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-blue-300 rounded-lg shadow-lg p-10 w-70 relative">
-          
-            <br />
-
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={handleBackdropClick}
+        >
+          <div 
+            className="bg-blue-300 rounded-lg shadow-lg p-10 w-70 relative"
+            onClick={(e) => e.stopPropagation()} // Prevent clicks inside modal from closing it
+          >
             <div className="space-y-4">
               {/* Title Input */}
               <div>
@@ -54,13 +59,12 @@ const editModal = () => {
               </div>
             </div>
 
-          
             <div className="flex justify-end gap-4 mt-5 mr-2">
               <button className="px-4 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Edit
               </button>
               <button
-                onClick={closeModal}
+                onClick={onClose}
                 className="px-4 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800"
               >
                 Close
@@ -68,9 +72,8 @@ const editModal = () => {
             </div>
           </div>
         </div>
-      )}
     </div>
   );
 };
 
-export default editModal;
+export default EditModal;
