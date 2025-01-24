@@ -95,7 +95,7 @@ const History = () => {
             <div className=" flex text-white justify-center items-center">
               <input
                 type="text"
-                className="w-2/4 p-3 h-10 rounded text-white bg-indigo-200"
+                className="w-2/4 p-3 h-10 rounded text-black bg-indigo-200"
                 placeholder="Search by Keyword"
               />
             </div>

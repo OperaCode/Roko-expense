@@ -71,7 +71,7 @@ const HomeDash = () => {
      <Link to="/add_expense_modal">
      <button
                 onClick={toggleModal} // Trigger the modal
-                className="bg-blue-900 items-center rounded justify-center w-full text-white p-2 flex"
+                className="bg-indigo-700 items-center rounded justify-center w-full text-white p-2 flex"
               >
                 <IoAddCircle className="mr-1" />
                 Add Expense
