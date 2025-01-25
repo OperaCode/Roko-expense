@@ -68,7 +68,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex gap-8">
+            <div className="flex lg:gap-8 gap-4">
               {/* image container beside words */}
               <div className="w-12 md:w-24 lg:w-36 h-auto object-cover">
                 <img src={laptopterrace} alt="" />
