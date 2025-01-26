@@ -14,7 +14,7 @@ const registerUser = asyncHandler(async (req, res) => {
     } else if (password.length < 8) {
       return res.status(400).json({ message: "Password must be at least 8 characters" });
     } else if (password.length > 20) {
-      return res.status(400).json({ message: "Password must not be up to 20 characters" });
+      return res.status(400).json({ message: "Password must not be more than 20 characters" });
     }
      // check if user already exists
         

@@ -4,8 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "./PasswordInput";
 import { GoArrowLeft } from "react-icons/go";
 import {toast} from "react-toastify"
+import axios from "axios";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Register = () => {
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,6 +21,9 @@ const Register = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [user, setUser] = useState(null)
+  const [formValidMessage, setFormValidMessage] = useState('')
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -30,40 +37,40 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     setLoading(true);
-
-    const { firstName, lastName, email, password, confirmPassword } = formData;
-
-    // user validation
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
-      setLoading(false);
-      return;
-    }
-
+    setIsSubmitting(true);
+    setError('');
+    setFormValidMessage('');
+  
     try {
-      // to fetch response from backend API URL
-      const response = await fetch("https://localhost:3000/user/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ firstName, lastName, email, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        navigate("/login"); // Redirect to login page after successful registration
-        toast.success("Registration successful")
-      } else {
-       toast.error("Failed to create account. Please try again.");
+      const { firstName, lastName, email, password, confirmPassword } = formData;
+  
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        setFormValidMessage('Oops, all fields are required');
+        throw new Error('All fields are required');
       }
-    } catch (err) {
-      toast.error("Something went wrong. Please try again later.");
+      
+      if (password !== confirmPassword) {
+        toast.error("Passwords do not match");
+        throw new Error("Passwords do not match");
+      }
+  
+      const response = await axios.post(`${BASE_URL}/admin/register`, formData, {
+        withCredentials: true
+      });
+  
+      if (response?.data) {
+        setUser(response.data);
+        toast.success('Registration Successful');
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      const errorMessage = error?.response?.data?.message || error.message || 'Internal server error';
+      toast.error(errorMessage);
+      setFormValidMessage(errorMessage);
     } finally {
       setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -214,6 +221,7 @@ const Register = () => {
               )}
 
               <div className="flex justify-center pt-2">
+
                 <button
                   type="submit"
                   className={`p-3 w-2/3 font-medium rounded transition-colors ${
@@ -221,10 +229,11 @@ const Register = () => {
                       ? "bg-indigo-700 text-white hover:bg-indigo-800"
                       : "bg-indigo-300 text-gray-100 cursor-not-allowed"
                   }`}
-                  disabled={!isChecked || loading}
+                  disabled={!isChecked || loading || isSubmitting}
                 >
                   {loading ? "Creating Account..." : "Create Account"}
                 </button>
+                {formValidMessage && <div className="text-red-600 text-xl">{formValidMessage}</div>}
               </div>
             </form>
           </div>
