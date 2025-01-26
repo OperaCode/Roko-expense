@@ -15,8 +15,9 @@ const Register = () => {
   });
 
   const [isChecked, setIsChecked] = useState(false);
-  const [error, setError] = useState("");
+  
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -35,6 +36,12 @@ const Register = () => {
 
     const { firstName, lastName, email, password, confirmPassword } = formData;
 
+
+    if(!firstName || !lastName || !email || !password) {
+      toast.error("Please fill all fields");
+      setLoading(false);
+      return;
+    }
     // user validation
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
@@ -43,8 +50,9 @@ const Register = () => {
     }
 
     try {
+      console.log(firstName + " " + lastName + " " + email + " " + password + " " + confirmPassword);
       // to fetch response from backend API URL
-      const response = await fetch("https://localhost:3000/user/register", {
+      const response = await fetch("http://localhost:3000/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,6 +61,7 @@ const Register = () => {
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         navigate("/login"); // Redirect to login page after successful registration

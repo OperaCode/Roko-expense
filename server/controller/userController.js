@@ -25,7 +25,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
      const user = await User.create({firstName, lastName, email, password})
      const token = generateToken(user._id);
-     console.log(token)
+     console.log(user)
+    //  toast.sucess(user)
 
      res.cookie('token', token, {
          path: '/',
@@ -153,7 +154,6 @@ const updateUser = asyncHandler(async(req, res) => {
 });
 
 // DeleteUser
-
 const deleteUser = asyncHandler(async(req, res) => {
   try {
     const userId = req.userId;  // Get ID from authenticated user
