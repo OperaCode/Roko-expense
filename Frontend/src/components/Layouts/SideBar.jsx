@@ -19,7 +19,7 @@ const SideBar = () => {
         <div className="flex justify-between items-center lg:flex-col">
           {/* Logo */}
           <div className=" flex items-center px-4 size-40">
-            <Link to="/dashboard">
+            <Link to="/">
               <img src={anotherlogo2} alt="Logo" className="hover:cursor-pointer size-" />
             </Link>
           </div>

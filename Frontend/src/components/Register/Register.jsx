@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
-import PasswordInput from "./PasswordInput";
 import { GoArrowLeft } from "react-icons/go";
 import {toast} from "react-toastify"
+import axios from "axios";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import PasswordInput from "../Layouts/PasswordInput";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Register = () => {
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,7 +22,8 @@ const Register = () => {
   const [isChecked, setIsChecked] = useState(false);
   
   const [loading, setLoading] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [user, setUser] = useState(null)
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -29,50 +35,47 @@ const Register = () => {
     setIsChecked(!isChecked);
   };
 
+  const handlePastePassword = (e) => {
+    e.preventDefault();
+    toast.error('Cannot paste into this field');
+    return;
+}
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     setLoading(true);
-
-    const { firstName, lastName, email, password, confirmPassword } = formData;
-
-
-    if(!firstName || !lastName || !email || !password) {
-      toast.error("Please fill all fields");
-      setLoading(false);
-      return;
-    }
-    // user validation
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
-      setLoading(false);
-      return;
-    }
-
+    setIsSubmitting(true);
+    setError('');
+  
     try {
-      console.log(firstName + " " + lastName + " " + email + " " + password + " " + confirmPassword);
-      // to fetch response from backend API URL
-      const response = await fetch("http://localhost:3000/user/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ firstName, lastName, email, password }),
-      });
-
-      const data = await response.json();
-      console.log(data)
-
-      if (response.ok) {
-        navigate("/login"); // Redirect to login page after successful registration
-        toast.success("Registration successful")
-      } else {
-       toast.error("Failed to create account. Please try again.");
+      const { firstName, lastName, email, password, confirmPassword } = formData;
+      console.log('Form Data:', { firstName, lastName, email, password, confirmPassword });
+  
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        setError('Oops, all fields are required');
+        throw new Error('All fields are required');
       }
-    } catch (err) {
-      toast.error("Something went wrong. Please try again later.");
+      
+      if (password !== confirmPassword) {
+        toast.error("Passwords do not match");
+        throw new Error("Passwords do not match");
+      }
+  
+      const response = await axios.post(`${BASE_URL}/user/register`, formData, { withCredentials: true });
+
+  
+      if (response?.data) {
+        setUser(response.data);
+        toast.success('Registration Successful');
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      const errorMessage = error?.response?.data?.message || error.message || 'Internal server error';
+      toast.error(errorMessage);
+      setError(errorMessage);
     } finally {
       setLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -173,46 +176,22 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="password" className="font-medium">
-                  Password
-                </label>
-                <PasswordInput
-                  id="password"
-                  name="password"
-                  placeholder="Enter password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  required
-                />
+
+              <div className="flex flex-col gap-1 relative">
+                <label htmlFor="password" className="font-medium">Password</label>
+                <PasswordInput placeholder="Enter password" id="password" name="password" required={true} className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full pr-10" value={formData.password} onChange={handleInputChange}/>
               </div>
-              <div className="flex flex-col gap-1">
-                <label htmlFor="confirmPassword" className="font-medium">
-                  Confirm Password
-                </label>
-                <PasswordInput
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="Confirm password"
-                  value={formData.confirmPassword}
-                  onChange={handleInputChange}
-                  required
-                />
+
+              <div className="flex flex-col gap-1 relative">
+                <label htmlFor="confirmPassword" className="font-medium">Confirm Password</label>
+                <PasswordInput placeholder="Confirm password" id="confirmPassword" name="confirmPassword" required={true} className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full" value={formData.confirmPassword} onChange={handleInputChange} onPaste={handlePastePassword}/>
               </div>
 
               <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="cursor-pointer"
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
-                />
-                <p>
-                  I agree to the{" "}
+                <input type="checkbox" className="cursor-pointer" checked={isChecked} onChange={handleCheckboxChange}/>
+                <p>I agree to the{" "}
                   <Link to="/terms-and-conditions">
-                    <span className="text-indigo-700 hover:text-indigo-900">
-                      terms & conditions
-                    </span>
+                    <span className="text-indigo-700 hover:text-indigo-900 hover:border-b-2 hover:border-indigo-800">terms & conditions</span>
                   </Link>{" "}
                   and privacy policy of SpendSmart
                 </p>
@@ -223,6 +202,7 @@ const Register = () => {
               )}
 
               <div className="flex justify-center pt-2">
+
                 <button
                   type="submit"
                   className={`p-3 w-2/3 font-medium rounded transition-colors ${
@@ -230,7 +210,7 @@ const Register = () => {
                       ? "bg-indigo-700 text-white hover:bg-indigo-800"
                       : "bg-indigo-300 text-gray-100 cursor-not-allowed"
                   }`}
-                  disabled={!isChecked || loading}
+                  disabled={!isChecked || loading || isSubmitting}
                 >
                   {loading ? "Creating Account..." : "Create Account"}
                 </button>
