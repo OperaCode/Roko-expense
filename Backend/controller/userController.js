@@ -25,8 +25,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
      const user = await User.create({firstName, lastName, email, password})
      const token = generateToken(user._id);
+     console.log(token)
      console.log(user)
-    //  toast.sucess(user)
 
      res.cookie('token', token, {
          path: '/',
