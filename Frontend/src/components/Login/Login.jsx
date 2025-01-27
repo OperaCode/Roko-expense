@@ -33,14 +33,14 @@ const Login = () => {
       const { email, password } = formData;
       
       if( !email || !password ) {
-        toast.error('OOps, All fields are required');
+        toast.error('All fields are required');
         return;
       }
       setIsSubmitting(true);
 
       console.log({formData});
       
-      const response = await axios.post(`${BASE_URL}/user/login`, formData, {withCredentials: true});
+      const response = await axios.post("http://localhost:3000/user/login", formData, {withCredentials: true});
       // localStorage.setItem("authToken", data.token);
       console.log(response);
       toast.success('Login Successful');

@@ -2,8 +2,11 @@ import React from "react";
 import SideBar from "./SideBar";
 import image from "../../assets/picture.jpeg"
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 
 const DashLayout = ({ children }) => {
+  const { user } = useContext(UserContext);
   return (
     <div className="lg:flex items-cent bg-indigo-600 p-1 ">
       <SideBar />
@@ -13,7 +16,7 @@ const DashLayout = ({ children }) => {
         {/* Navbar */}
         <div className="flex items-center justify-end gap-4 p-2">
           <h1 className="text-2xl md:text-3xl font-bold text-white">
-            Welcome Cheryl,
+            Welcome {user.fullName}!,
           </h1>
           <div className="w-12 h-12">
             <Link to='/dashboard'>

@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import axios from "axios";
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import PasswordInput from "../Layouts/PasswordInput";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Register = () => {
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -20,15 +19,17 @@ const Register = () => {
   });
 
   const [isChecked, setIsChecked] = useState(false);
-  
   const [loading, setLoading] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [user, setUser] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(""); // Added error state
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError(""); // Clear the error when the user types
   };
 
   const handleCheckboxChange = () => {
@@ -37,42 +38,45 @@ const Register = () => {
 
   const handlePastePassword = (e) => {
     e.preventDefault();
-    toast.error('Cannot paste into this field');
+    toast.error("Cannot paste into this field");
     return;
-}
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setIsSubmitting(true);
-    setError('');
-  
+    setError(""); // Reset error before validation
+
     try {
       const { firstName, lastName, email, password, confirmPassword } = formData;
-      console.log('Form Data:', { firstName, lastName, email, password, confirmPassword });
-  
+
       if (!firstName || !lastName || !email || !password || !confirmPassword) {
-        setError('Oops, all fields are required');
-        throw new Error('All fields are required');
+        setError("Oops, all fields are required");
+        throw new Error("All fields are required");
       }
-      
+
       if (password !== confirmPassword) {
-        toast.error("Passwords do not match");
+        setError("Passwords do not match");
         throw new Error("Passwords do not match");
       }
-  
-      const response = await axios.post(`${BASE_URL}/user/register`, formData, { withCredentials: true });
 
-  
+      const response = await axios.post(
+       "http://localhost:3000/user/register",
+        formData,
+        { withCredentials: true }
+      );
+
       if (response?.data) {
         setUser(response.data);
-        toast.success('Registration Successful');
-        navigate('/dashboard');
+        toast.success("Registration Successful");
+        navigate("/dashboard");
       }
     } catch (error) {
-      const errorMessage = error?.response?.data?.message || error.message || 'Internal server error';
+      const errorMessage =
+        error?.response?.data?.message || error.message || "Internal server error";
+      setError(errorMessage); // Set error message
       toast.error(errorMessage);
-      setError(errorMessage);
     } finally {
       setLoading(false);
       setIsSubmitting(false);
@@ -178,20 +182,49 @@ const Register = () => {
               </div>
 
               <div className="flex flex-col gap-1 relative">
-                <label htmlFor="password" className="font-medium">Password</label>
-                <PasswordInput placeholder="Enter password" id="password" name="password" required={true} className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full pr-10" value={formData.password} onChange={handleInputChange}/>
+                <label htmlFor="password" className="font-medium">
+                  Password
+                </label>
+                <PasswordInput
+                  placeholder="Enter password"
+                  id="password"
+                  name="password"
+                  required={true}
+                  className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full pr-10"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
               </div>
 
               <div className="flex flex-col gap-1 relative">
-                <label htmlFor="confirmPassword" className="font-medium">Confirm Password</label>
-                <PasswordInput placeholder="Confirm password" id="confirmPassword" name="confirmPassword" required={true} className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full" value={formData.confirmPassword} onChange={handleInputChange} onPaste={handlePastePassword}/>
+                <label htmlFor="confirmPassword" className="font-medium">
+                  Confirm Password
+                </label>
+                <PasswordInput
+                  placeholder="Confirm password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  required={true}
+                  className="bg-indigo-100 p-2 rounded-md border-b border-indigo-900 w-full"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  onPaste={handlePastePassword}
+                />
               </div>
 
               <div className="flex gap-2">
-                <input type="checkbox" className="cursor-pointer" checked={isChecked} onChange={handleCheckboxChange}/>
-                <p>I agree to the{" "}
+                <input
+                  type="checkbox"
+                  className="cursor-pointer"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+                <p>
+                  I agree to the{" "}
                   <Link to="/terms-and-conditions">
-                    <span className="text-indigo-700 hover:text-indigo-900 hover:border-b-2 hover:border-indigo-800">terms & conditions</span>
+                    <span className="text-indigo-700 hover:text-indigo-900 hover:border-b-2 hover:border-indigo-800">
+                      terms & conditions
+                    </span>
                   </Link>{" "}
                   and privacy policy of SpendSmart
                 </p>
@@ -202,7 +235,6 @@ const Register = () => {
               )}
 
               <div className="flex justify-center pt-2">
-
                 <button
                   type="submit"
                   className={`p-3 w-2/3 font-medium rounded transition-colors ${

@@ -59,6 +59,7 @@ function App() {
             <TandC />
           </Layout>
         }
+        
       />
       <Route path="/history" element={
       <DashLayout>
