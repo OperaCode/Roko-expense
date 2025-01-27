@@ -20,7 +20,7 @@ const Register = () => {
   });
 
   const [isChecked, setIsChecked] = useState(false);
-  const [error, setError] = useState("");
+  
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [user, setUser] = useState(null)
