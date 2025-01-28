@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const AddExpenseModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
