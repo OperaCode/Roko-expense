@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const Expense = require("../model/expenseModel");
 
+
 // Create and save a new expense
 const createExpense = asyncHandler(async (req, res) => {
   try {
