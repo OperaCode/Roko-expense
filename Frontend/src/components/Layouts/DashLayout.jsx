@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
-import image from "../../assets/picture.jpeg"
+import image from "../../assets/profileAvatar.jpeg"
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 import axios from "axios";
 
-const formatName = (fullname) => {
-  return fullname ? fullname.split(" ")[0] : "Guest"; // Fallback in case fullname is not available
-};
 
 
 const DashLayout = ({ children }) => {
