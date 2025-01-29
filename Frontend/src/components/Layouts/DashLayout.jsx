@@ -1,22 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import image from "../../assets/picture.jpeg"
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
-
+import axios from "axios";
 
 const formatName = (fullname) => {
-  const firstName = fullname.split(" ")[0];
-  return firstName;
+  return fullname ? fullname.split(" ")[0] : "Guest"; // Fallback in case fullname is not available
 };
 
 
 const DashLayout = ({ children }) => {
   const { user } = useContext(UserContext);
-  console.log(user)
+  const [username, setUserName] = useState("Guest")
+  const [profilePhoto, setProfilePhoto] = useState()
+ 
 
-  const displayName = user && user.fullname ? formatName(user.fullname) : 'User';
+ useEffect(()=>{
+
+  const fetchUser =async()=>{
+   
+    try {
+      const UserId = localStorage.getItem("userId"); // Assuming you store userId in local storage
+      const response = await axios.get(`http://localhost:3000/user/${UserId}`,{withCredentials:true});
+      // console.log(response);
+      const data = response.data
+      setUserName(data.firstName); // Assuming username is in the response data
+      console.log(data);
+
+      if(data.profilePhoto){
+        setProfilePhoto(data.profilePhoto);
+      }else{
+        setProfilePhoto(image);
+      }
+
+      
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  fetchUser();
+ },[]);
+ 
   
   return (
     <div className="lg:flex items-cent bg-indigo-600 p-1 ">
@@ -27,7 +54,7 @@ const DashLayout = ({ children }) => {
         {/* Navbar */}
         <div className="flex items-center justify-end gap-4 p-2">
           <h1 className="text-2xl md:text-3xl font-bold text-white">
-            Welcome  {displayName}!,
+          Welcome, {username}!
           </h1>
           <div className="w-12 h-12">
             <Link to='/dashboard'>

@@ -6,10 +6,9 @@ import AddExpenseModal from "../Modals/addExpenseModal";
 
 
 const HomeDash = () => {
-
-
   // State to manage modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expenses, setExpenses] = useState([]); 
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);

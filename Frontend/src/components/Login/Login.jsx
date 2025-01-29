@@ -39,7 +39,7 @@ const Login = () => {
       }
       setIsSubmitting(true);
 
-      console.log({formData});
+      // console.log({formData});
       
       const response = await axios.post("http://localhost:3000/user/login", formData, {withCredentials: true});
       // localStorage.setItem("authToken", data.token);
