@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 
 
+
 const HomeDash = () => {
+
 
   // State to manage modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,7 +51,7 @@ const HomeDash = () => {
             </div>
             <div className="flex justify-between items-center p-2">
               <p className="text-lg font-semibold md:text-sm">
-                Foods and Groceries
+                Transportation
               </p>
               <div className="bg-gray-200 p-2 rounded">
                 <p className="font-semibold text-gray-700 md:text-sm">Total</p>
@@ -60,7 +62,7 @@ const HomeDash = () => {
             </div>
             <div className="flex justify-between items-center p-2">
               <p className="text-lg font-semibold md:text-sm">
-                Foods and Groceries
+               Utilities
               </p>
               <div className="bg-gray-200 p-2 rounded">
                 <p className="font-semibold text-gray-700 md:text-sm">Total</p>

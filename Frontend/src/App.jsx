@@ -25,6 +25,7 @@ import SortByModal from "./components/Modals/sortByModal.jsx";
 
 
 
+
 function App() {
   const RenderRoute = () => (
     <Routes>
@@ -70,6 +71,7 @@ function App() {
             <TandC />
           </Layout>
         }
+        
       />
       <Route path="/download_modal" element={<DownloadModal />} />
       <Route path="/delete_modal" element={<DeleteModal/>} />

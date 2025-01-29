@@ -19,7 +19,7 @@ const transactions = [
   },
   {
     title: "PayPal",
-    category: "Travel and Vacation",
+    category: "Transportaion",
     method: "Bank Transfer",
     date: Date.now(),
     amount: "$400.00",

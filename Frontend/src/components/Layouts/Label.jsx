@@ -21,7 +21,7 @@ const labelObject = [
 const Label = () => {
   return (
     <>
-      <div className="  ">
+      <div>
         {labelObject.map((item, index) => (
           <div className="flex justify-between items-center w-60 ">
             <div className="p-2">

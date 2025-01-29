@@ -41,7 +41,7 @@ const HowItWorks = () => {
 
   {/* Features Grid */}
   <div className="flex justify-center">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full md:w-11/12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12 w-full md:w-11/12">
       {/* Getting Started Section */}
       <div className="flex justify-center">
         <div className="flex flex-col gap-4 w-full">

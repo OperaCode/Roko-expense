@@ -14,6 +14,7 @@ export default {
           bgColor: '#5D6DCA',
         },
         screens: {
+          'xxs': '200px',
           'xs': '400px',
           'sm': '640px',
           'md': '768px',

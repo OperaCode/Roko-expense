@@ -46,4 +46,4 @@ const iconModal = () => {
   );
 };
 
-export default IconModal;
+export default iconModal;

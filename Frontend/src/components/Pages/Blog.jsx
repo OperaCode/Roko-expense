@@ -11,7 +11,7 @@ const Blog = () => {
   return (
     <section className="bg-bgColor">
   <Header />
-  <div className="container mx-auto px-4 pt-8 md:pt-16 lg:pt-40">
+  <div className="container mx-auto px-4 pt-8 md:pt-16 lg:pt-40 lg:pb-2 pb-8">
     {/* Header Section */}
     <div className="flex flex-col items-center mb-8 md:mb-16 space-y-6">
       {/* Title and Description */}
@@ -49,8 +49,8 @@ const Blog = () => {
           key={post.title}
           className={`flex flex-col items-center gap-12 md:gap-16 lg:gap-24 text-white
             ${index % 2 === 0 
-              ? 'sm:flex-col-reverse md:flex-row' 
-              : 'sm:flex-col md:flex-row'}
+              ? 'xxs:flex-col-reverse md:flex-row' 
+              : 'xxs:flex-col md:flex-row'}
             justify-center`}
         >
           {index % 2 !== 0 && (
