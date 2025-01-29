@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-const MobileMenuModal = () => {
+const mobileMenuModal = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => {
@@ -38,4 +38,4 @@ const MobileMenuModal = () => {
   );
 };
 
-export default MobileMenuModal;
+export default mobileMenuModal;
