@@ -53,40 +53,37 @@ const Recent = ({ transaction }) => {
           <tbody>
             {transactions.length > 0 ? (
               transactions
-                .slice(0, 3)
-                .map((transaction, index) => {
-                  const transactionDate = new Date(transaction.date);
-                  transactionDate.setUTCDate(transactionDate.getUTCDate() + 1);
-                  const formattedDate = transactionDate.toLocaleDateString();
-
-                  return (
-                    <tr
-                      key={index}
-                      className={`${
-                        index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                      } hover:bg-gray-100 `}
-                    >
-                      <td className="text-center text-base p-2 text-gray-800">
-                        {transaction.title}
-                      </td>
-                      <td className="text-center text-base p-2 text-gray-800 ">
-                        {transaction.category}
-                      </td>
-                      <td className="text-center text-base p-2 hidden md:block text-gray-600">
-                        {transaction.method}
-                      </td>
-                      <td className="text-center text-base p-2  text-gray-600">
-                        {formattedDate}
-                      </td>
-                      <td className="text-center text-base p-2  text-green-500">
-                        ${transaction.amount}
-                      </td>
-                      <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
-                        <CiMenuKebab className="m-auto" />
-                      </td>
-                    </tr>
-                  );
-                })
+              .slice(0, 3)
+              .map((transaction, index) => {
+                const transactionDate = new Date(transaction.date);
+                const formattedDate = transactionDate.toLocaleDateString();
+            
+                return (
+                  <tr
+                    key={index}
+                    className={`${index % 2 === 0 ? "bg-white" : "bg-gray-50"} hover:bg-gray-100`}
+                  >
+                    <td className="text-center text-base p-2 text-gray-800">
+                      {transaction.title}
+                    </td>
+                    <td className="text-center text-base p-2 text-gray-800">
+                      {transaction.category}
+                    </td>
+                    <td className="text-center text-base p-2 hidden md:block text-gray-600">
+                      {transaction.method}
+                    </td>
+                    <td className="text-center text-base p-2 text-gray-600">
+                      {formattedDate}
+                    </td>
+                    <td className="text-center text-base p-2 text-green-500">
+                      ${transaction.amount.toLocaleString()}
+                    </td>
+                    <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
+                      <CiMenuKebab className="m-auto" />
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <tr>
                 <td
