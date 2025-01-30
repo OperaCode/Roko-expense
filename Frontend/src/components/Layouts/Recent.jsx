@@ -1,10 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
-import AddExpenseModal from "../Modals/AddExpenseModal";
 
 const override = {
   display: "block",
@@ -12,9 +9,7 @@ const override = {
 };
 
 const Recent = ({ transaction }) => {
-  console.log({ transaction });
   const [transactions, setTransactions] = useState(transaction);
-  console.log({ transaction });
   const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading)
@@ -84,7 +79,7 @@ const Recent = ({ transaction }) => {
                         {formattedDate}
                       </td>
                       <td className="text-center text-base p-2  text-green-500">
-                        {transaction.amount}
+                        ${transaction.amount}
                       </td>
                       <td className="p-2 md:px-6 text-base md:hidden text-indigo-900">
                         <CiMenuKebab className="m-auto" />
