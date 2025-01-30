@@ -13,6 +13,9 @@ import HomeDash from "./components/Dashboard/HomeDash.jsx";
 import InvoiceView from "./components/Dashboard/invoiceView.jsx";
 import ProfileSettings from "./components/Dashboard/ProfileSettings.jsx";
 import History from "./components/Dashboard/History.jsx";
+import RecentTransactions from "./components/Layouts/recentTransaction.jsx";
+import AddExpenseModal from "./components/Modals/AddExpenseModal.jsx";
+import DeleteModal from "./components/Modals/deleteModal.jsx";
 
 function App() {
   const RenderRoute = () => (
@@ -66,6 +69,7 @@ function App() {
     </DashLayout>
     } />
       <Route path="/profile-setting" element={<ProfileSettings/>}/>
+      <Route path="/modal" element={<AddExpenseModal/>}/>
       <Route path="/invoice" element={
       <DashLayout>
       <InvoiceView />
@@ -77,6 +81,14 @@ function App() {
         element={
           <DashLayout>
             <History />
+          </DashLayout>
+        }
+      />
+      <Route
+        path="/recent"
+        element={
+          <DashLayout>
+            <RecentTransactions/>
           </DashLayout>
         }
       />

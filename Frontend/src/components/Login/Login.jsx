@@ -72,8 +72,7 @@ const Login = () => {
           <div className="text-white space-y-10 py-20 md:flex-1">
             <div className="space-y-4 pr-12 font-headerFont flex flex-col gap-2">
               <h1 className="text-5xl font-bold">Welcome Back!</h1>
-              <p className="text-2xl lg:w-8/12">
-                Login to make seamless transaction records effortlessly.</p>
+              <p className="text-2xl lg:w-8/12">Login to make seamless transaction records effortlessly.</p>
             </div>
 
             <div className="">

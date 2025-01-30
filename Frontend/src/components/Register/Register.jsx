@@ -22,6 +22,7 @@ const Register = () => {
   
   const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [user, setUser] = useState(null)
   const navigate = useNavigate();
 
