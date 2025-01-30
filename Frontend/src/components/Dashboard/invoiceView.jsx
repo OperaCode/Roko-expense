@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import DownloadModal from "../Modals/downloadModal";
 
 const InvoiceView = () => {
   // Static invoice data
@@ -18,10 +18,20 @@ const InvoiceView = () => {
     total: 564.0,
   };
 
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Sidebar */}
-      <SideBar />
+      {/* <SideBar /> */}
 
       {/* Main Content */}
       <div className="flex-1 bg-gradient-to-tl from-indigo-400 to-indigo-950 p-4 md:p-6 text-white">
@@ -34,18 +44,6 @@ const InvoiceView = () => {
             <ion-icon name="arrow-back-outline" size="large"></ion-icon>
             <span>Back</span>
           </button>
-
-          {/* Profile Section */}
-          <div className="flex items-center space-x-3">
-            <img
-              src="https://via.placeholder.com/40"
-              alt="Profile"
-              className="w-10 h-10 rounded-full border-2 border-indigo-500"
-            />
-            <button className="text-indigo-500 hover:text-indigo-700 focus:outline-none">
-              <ion-icon name="create-outline" size="large"></ion-icon>
-            </button>
-          </div>
         </div>
 
         <div className="max-w-3xl mx-auto p-4 md:p-6 bg-white shadow-md rounded-lg">
@@ -125,17 +123,17 @@ const InvoiceView = () => {
           </section>
 
           <div className="flex justify-end p-4">
-            <Link to="/download_modal">
-              <button className="flex items-center space-x-2 text-white bg-indigo-500 hover:bg-indigo-700 px-4 py-2 rounded shadow">
+              <button className="flex items-center space-x-2 text-white bg-indigo-500 hover:bg-indigo-700 px-4 py-2 rounded shadow" onClick={openModal}>
                 <ion-icon name="download-outline" size="medium"></ion-icon>
                 <span>Download</span>
               </button>
-            </Link>
           </div>
         </div>
       </div>
+      {modalOpen &&  <DownloadModal onClose={closeModal}/>}
     </div>
   );
 };
+
 
 export default InvoiceView;

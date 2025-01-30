@@ -57,7 +57,7 @@ const HomeDash = () => {
           <h1 className="text-white font-semibold text-3xl md:text-2xl p-1">Current Balance:</h1>
           <div className="p-4 bg-white rounded-lg shadow-md w-1/2">
             <p className="text-gray-600 text-sm md:text-xs">Total Expenses</p>
-            <h2 className="text-2xl font-bold text-gray-700">${totalExpenses.toFixed(2)}</h2>
+            <h2 className="text-2xl font-bold text-gray-700">${totalExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h2>
           </div>
           <h1 className="text-white font-semibold text-3xl md:text-2xl p-3">Expenses</h1>
           <div className="bg-white rounded-lg shadow-md text-center p-4">
@@ -65,34 +65,34 @@ const HomeDash = () => {
               <p className="text-lg md:text-sm font-semibold">Foods and Groceries</p>
               <div className="bg-gray-200 p-2 rounded">
                 <p className="font-semibold text-gray-700 md:text-sm">Total</p>
-                <p className="font-semibold text-gray-700 md:text-sm">${totalFoodGroceries.toFixed(2)}</p>
+                <p className="font-semibold text-gray-700 md:text-sm">${totalFoodGroceries.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
               <p className="text-lg md:text-sm font-semibold">Utilities</p>
               <div className="bg-gray-200 p-2 rounded">
                 <p className="font-semibold text-gray-700 md:text-sm">Total</p>
-                <p className="font-semibold text-gray-700 md:text-sm">${totalUtilities.toFixed(2)}</p>
+                <p className="font-semibold text-gray-700 md:text-sm">${totalUtilities.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               </div>
             </div>
             <div className="flex justify-between items-center p-2">
               <p className="text-lg font-semibold md:text-sm">Transportation</p>
               <div className="bg-gray-200 p-2 rounded">
                 <p className="font-semibold text-gray-700 md:text-sm">Total</p>
-                <p className="font-semibold text-gray-700 md:text-sm">${totalTransportation.toFixed(2)}</p>
+                <p className="font-semibold text-gray-700 md:text-sm">${totalTransportation.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
               </div>
             </div>
             <div className="w-2/4 flex m-auto p-3 justify-center">
               <button onClick={openModal} className="bg-indigo-700 items-center rounded justify-center w-full hover:bg-indigo-900 text-white p-3 flex">
                 <IoAddCircle className="mr-1" /> Add Expense
               </button>
-     </Link>
             </div>
           </div>
         </div>
         <div className="flex-1 p-3">
           <Graph />
-        </div>
+          </div>
+        {/* </div> */}
       </div>
       <Recent transaction={transactions} />
       {isModalOpen && <AddExpenseModal onAddTransaction={handleAddTransaction} onClose={closeModal} />} 
