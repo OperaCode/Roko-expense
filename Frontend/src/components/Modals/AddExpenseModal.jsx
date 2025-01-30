@@ -75,6 +75,7 @@ const AddExpenseModal = ({ onAddTransaction, onClose }) => {
             <div className="relative">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
               <input id="amount" name="amount" type="number" className="w-full pl-8 px-2 py-2 border-b-2 border-gray-300 rounded bg-indigo-500 text-white" placeholder="0.00" onChange={handleInputChange} value={addExpense.amount} />
+
             </div>
           </div>
         </div>

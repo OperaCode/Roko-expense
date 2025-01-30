@@ -27,6 +27,7 @@ const format24Hour = ({dd, mm, yyyy, HH, MM, SS}) => {
   return `${mm}/${dd}/${yyyy} ${HH}:${MM}:${SS}`
 }
 
+
 // Create and save a new expense
 const createExpense = asyncHandler(async (req, res) => {
   try {

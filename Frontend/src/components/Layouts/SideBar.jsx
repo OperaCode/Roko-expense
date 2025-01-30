@@ -1,17 +1,53 @@
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaWindowClose } from "react-icons/fa";
 import logo from "../../assets/Roko-logo.png";
 import anotherlogo2 from "../../assets/anotherlogo2.png"
+// import { toast } from "react-toastify";
+import axios from "axios";
+
+
+const dashboardLinks = [
+  {title: "Dashboard", route: "/homedash"},
+  {title: "Invoice", route: "/history"},
+  {title: "Profile Setting", route: "/room"},
+  {title: "Log Out", route: "/login"},
+]
+
+
 
 const SideBar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate(); 
 
-  // Toggle the modal
+
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  //logOutUser
+const logoutUser = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/user/logout",
+      {},
+      { withCredentials: true } 
+    );
+
+    if (response.status === 200) {
+      localStorage.removeItem("userToken");
+      toast.success("Logout successful!");
+      navigate("/login");
+    } else {
+      console.error("Logout failed",);
+      toast.error("Failed to log out. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error logging out:", error);
+    toast.error("An error occurred while logging out.");
+  }
+};
 
   return (
     <aside className="bg-indigo-800 lg:w-1/4 border-2 rounded-2xl font-headerFont">
@@ -31,8 +67,8 @@ const SideBar = () => {
                 <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               </Link>
 
-              <Link to='/history'>
-                <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
+              <Link to="/history">
+              <li className="hover:cursor-pointer lg:text-2xl">History</li>
               </Link>
 
               <Link to="/profile-setting">
@@ -40,6 +76,11 @@ const SideBar = () => {
                   Profile Settings
                 </li>
               </Link>
+              
+                <li className="hover:cursor-pointer lg:text-2xl" onClick={logoutUser}>
+                 Log Out
+                </li>
+        
             </ul>
           </div>
 
@@ -77,6 +118,9 @@ const SideBar = () => {
               <Link to="/profile-setting">
                 <li className="hover:text-gray-400 cursor-pointer">Profile Settings</li>
               </Link>
+              
+                <li className="hover:text-gray-400 cursor-pointer" onClick={logoutUser}>Log Out</li>
+           
             </ul>
           </div>
         </div>

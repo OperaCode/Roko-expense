@@ -86,6 +86,7 @@ const HomeDash = () => {
               <button onClick={openModal} className="bg-indigo-700 items-center rounded justify-center w-full hover:bg-indigo-900 text-white p-3 flex">
                 <IoAddCircle className="mr-1" /> Add Expense
               </button>
+     </Link>
             </div>
           </div>
         </div>
