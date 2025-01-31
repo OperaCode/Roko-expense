@@ -11,35 +11,37 @@ import axios from "axios";
 const DashLayout = ({ children }) => {
   const { user } = useContext(UserContext);
   const [username, setUserName] = useState("Guest")
-  const [profilePhoto, setProfilePhoto] = useState()
+  const [profilePhoto, setProfilePhoto] = useState(image)
+  // const [transactions, setTransactions] = useState([]);
  
 
- useEffect(()=>{
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const UserId = localStorage.getItem("userId"); // Assuming you store userId in local storage
+        const response = await axios.get(`http://localhost:3000/user/${UserId}`, { withCredentials: true });
+        const data = response.data;
 
-  const fetchUser =async()=>{
-   
-    try {
-      const UserId = localStorage.getItem("userId"); // Assuming you store userId in local storage
-      const response = await axios.get(`http://localhost:3000/user/${UserId}`,{withCredentials:true});
-      // console.log(response);
-      const data = response.data
-      setUserName(data.firstName); // Assuming username is in the response data
-      console.log(data);
-
-      if(data.profilePhoto){
-        setProfilePhoto(data.profilePhoto);
-      }else{
-        setProfilePhoto(image);
+        setUserName(data.firstName);
+        setProfilePhoto(data.profilePhoto || image);
+      } catch (error) {
+        console.log("Error fetching user:", error);
       }
+    };
 
-      
+    const fetchTransactions = async () => {
+      try {
+        const UserId = localStorage.getItem("userId");
+        const response = await axios.get(`http://localhost:3000/transactions/${UserId}`, { withCredentials: true });
+        setTransactions(response.data); // Assuming response.data is an array of transactions
+      } catch (error) {
+        console.log("Error fetching transactions:", error);
+      }
+    };
 
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  fetchUser();
- },[]);
+    fetchUser();
+    fetchTransactions();
+  }, []);
  
   
   return (

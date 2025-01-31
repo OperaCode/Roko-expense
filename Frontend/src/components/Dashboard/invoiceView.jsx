@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const InvoiceView = () => {
+  // Categories and transaction methods
+  const categories = ["Food and groceries", "Transportation", "Utilities"];
+  const transactionMethods = ["Bank Transfer", "Cash", "Credit Card"];
+
   // Static invoice data
   const invoice = {
     number: "INV-2025-001",
@@ -10,12 +13,11 @@ const InvoiceView = () => {
     customer: {
       name: "John Doe",
       email: "john.doe@example.com",
-      address: "123 Elm Street, Springfield",
     },
-    items: [
-      { name: "Service fee", quantity: 1, price: 500.0 },
-      { name: "Machinery", quantity: 1, price: 120.0 },
-      { name: "Domain Registration", quantity: 1, price: 20.0 },
+    expenses: [
+      { name: "Service fee", price: 500.0 },
+      { name: "Machinery", price: 120.0 },
+      { name: "Domain Registration", price: 20.0 },
     ],
     subtotal: 640.0,
     tax: 64.0,
@@ -26,21 +28,18 @@ const InvoiceView = () => {
     <div className="flex min-h-screen font-bodyFont">
       {/* Main Content */}
       <div className="flex-1 bg-gradient-to-tl from-indigo-400 to-indigo-950 p-6 text-white">
-      <div className="flex justify-between items-center mb-6">
-            {/* Back Button */}
-            <button
-              className="flex items-center space-x-2 text-indigo-100 hover:text-indigo-500 focus:outline-none"
-              onClick={() => window.history.back()}
-            >
-              <ion-icon name="arrow-back-outline" size="large"></ion-icon>
-              <span>Back</span>
-            </button>
+        <div className="flex justify-between items-center mb-6">
+          {/* Back Button */}
+          <button
+            className="flex items-center space-x-2 text-indigo-100 hover:text-indigo-500 focus:outline-none"
+            onClick={() => window.history.back()}
+          >
+            <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+            <span>Back</span>
+          </button>
+        </div>
 
-            {/* Profile Section */}
-          </div>
         <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-         
-
           <header className="text-center border-b pb-4 mb-6">
             <h1 className="text-3xl font-bold text-gray-800">Invoice</h1>
           </header>
@@ -51,34 +50,37 @@ const InvoiceView = () => {
               <p><strong>Invoice Date:</strong> 2024/10/02</p>
               <p><strong>Due Date:</strong> 2024/10/02</p>
             </div>
-            <p className="text-right self-start"><strong>Status:</strong> Paid</p>
+            {/* <p className="text-right self-start"><strong>Status:</strong> Paid</p> */}
           </div>
 
           <section className="mb-6 text-black">
             <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">Customer Information</h2>
             <p><strong>Name:</strong> {invoice.customer.name}</p>
             <p><strong>Email:</strong> {invoice.customer.email}</p>
-            <p><strong>Address:</strong> {invoice.customer.address}</p>
           </section>
 
           <section className="mb-6 text-black">
-            <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">Items</h2>
+            <h2 className="text-xl font-semibold text-gray-700 border-b pb-2 mb-4">Expenses</h2>
             <table className="w-full border-collapse border border-gray-200 text-left">
               <thead>
                 <tr>
-                  <th className="border border-gray-200 px-4 py-2">Item</th>
-                  <th className="border border-gray-200 px-4 py-2">Quantity</th>
-                  <th className="border border-gray-200 px-4 py-2">Price</th>
-                  <th className="border border-gray-200 px-4 py-2">Total</th>
+                  <th className="border border-gray-200 px-4 py-2">Expense</th>
+                  <th className="border border-gray-200 px-4 py-2">Category</th>
+                  <th className="border border-gray-200 px-4 py-2">Transaction Method</th>
+                  <th className="border border-gray-200 px-4 py-2">Amount</th>
                 </tr>
               </thead>
               <tbody>
-                {invoice.items.map((item, index) => (
+                {invoice.expenses.map((expense, index) => (
                   <tr key={index}>
-                    <td className="border border-gray-200 px-4 py-2">{item.name}</td>
-                    <td className="border border-gray-200 px-4 py-2">{item.quantity}</td>
-                    <td className="border border-gray-200 px-4 py-2">${item.price.toFixed(2)}</td>
-                    <td className="border border-gray-200 px-4 py-2">${(item.price * item.quantity).toFixed(2)}</td>
+                    <td className="border border-gray-200 px-4 py-2">{expense.name}</td>
+                    <td className="border border-gray-200 px-4 py-2">
+                      {categories[Math.floor(Math.random() * categories.length)]}
+                    </td>
+                    <td className="border border-gray-200 px-4 py-2">
+                      {transactionMethods[Math.floor(Math.random() * transactionMethods.length)]}
+                    </td>
+                    <td className="border border-gray-200 px-4 py-2">${expense.price.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -92,18 +94,15 @@ const InvoiceView = () => {
             <p className="text-gray-800 font-bold"><strong>Total:</strong> ${invoice.total.toFixed(2)}</p>
           </section>
 
-          {/* <button>Download </button> */}
+          {/* Download Button */}
           <div className="flex justify-end p-4">
-  <Link to="/modal">
-    <button className="flex items-center space-x-2 text-white bg-indigo-500 hover:bg-indigo-700 px-4 py-2 rounded shadow">
-      <ion-icon name="download-outline" size="medium"></ion-icon>
-      <span>Download</span>
-    </button>
-  </Link>
-</div>
-
-
-         
+            <Link to="/modal">
+              <button className="flex items-center space-x-2 text-white bg-indigo-500 hover:bg-indigo-700 px-4 py-2 rounded shadow">
+                <ion-icon name="download-outline" size="medium"></ion-icon>
+                <span>Download</span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
