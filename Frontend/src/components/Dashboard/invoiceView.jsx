@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import DownloadModal from "../Modals/downloadModal";
 
 const InvoiceView = () => {
+  // Categories and transaction methods
+  const categories = ["Food and groceries", "Transportation", "Utilities"];
+  const transactionMethods = ["Bank Transfer", "Cash", "Credit Card"];
+
   // Static invoice data
   const invoice = {
     number: "INV-2025-001",

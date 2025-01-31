@@ -1,35 +1,39 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
+import axios from "axios";
 
-const override = {
-  display: "block",
-  margin: "100px auto",
-};
+const Recent = () => {
+  const [transactions, setTransactions] = useState([]);
 
-const Recent = ({ transaction }) => {
-  const [transactions, setTransactions] = useState(transaction);
-  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const UserId = localStorage.getItem("userId"); 
+        const response = await axios.get(`http://localhost:3000/transactions/${UserId}`, { withCredentials: true });
+        setTransactions(response.data || []); 
+      } catch (error) {
+        console.log("Error fetching transactions:", error);
+      }
+    };
 
-  if (isLoading)
-    return (
-      <ClipLoader color="1a80e5" cssOverride={override} isLoading={isLoading} />
-    );
+    fetchTransactions();
+  }, []);
 
   return (
     <div className="w-full p-6 bg-white rounded-lg mt-4 shadow-md">
       {/* Header */}
-      <div className="flex justify-between items-center  md:text-lg">
+      <div className="flex justify-between items-center md:text-lg">
         <div>
           <h2 className="text-s md:text-lg font-semibold text-gray-800">
             Recent Transactions
           </h2>
-          <p className=" text-xs p-2 md:text-gray-500">
-            Check your transaction history
-          </p>
+          {/* <p className="text-xs p-2 md:text-gray-500">Check your transaction history</p> */}
         </div>
         <Link to="/history">
+          <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
+            See all
+          </button>
           <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
             See all
           </button>
@@ -40,13 +44,13 @@ const Recent = ({ transaction }) => {
       <div className="border rounded-lg">
         <table className="w-full text-xs md:text-lg">
           <thead>
-            <tr className="bg-gray-100 ">
+            <tr className="bg-gray-100">
               <th className="text-center text-base text-gray-700">Title</th>
-              <th className="text-center text-base  text-gray-700 ">Category</th>
+              <th className="text-center text-base text-gray-700">Category</th>
               <th className="text-center text-base text-gray-700 hidden md:block">Transaction Method</th>
-              <th className="text-center text-base  text-gray-700">Date</th>
+              <th className="text-center text-base text-gray-700">Date</th>
               <th className="text-center text-base text-gray-700">Amount</th>
-              <th className="text-center  text-base text-gray-700 md:hidden">Action</th>
+              <th className="text-center text-base text-gray-700 md:hidden">Action</th>
             </tr>
           </thead>
 
@@ -84,14 +88,10 @@ const Recent = ({ transaction }) => {
               })
             ) : (
               <tr>
-                <td
-                  colSpan="5"
-                  className="px-6 py-4 text-center text-gray-500 font-medium"
-                >
-                  No transactions found.
-                </td>
+                <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found.</td>
               </tr>
             )}
+            
           </tbody>
         </table>
       </div>
