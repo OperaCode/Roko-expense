@@ -1,6 +1,32 @@
 const asyncHandler = require("express-async-handler");
 const Expense = require("../model/expenseModel");
 
+const date = new Date();
+const formatDate = (input) => {
+  return input > 9 ? input : `0${input}`;
+}
+
+const formatHour = (input) => {
+  return input > 12 ? input - 12 : input;
+}
+
+const format = {
+  dd: formatDate(date.getDate()),
+  mm: formatHour(date.getMonth() + 1),
+  yyyy: formatDate(date.getFullYear()),
+
+  HH: formatDate((date.getHours())),
+  hh: formatDate(formatHour(date.getHours())),
+
+  MM: formatDate(date.getMinutes()),
+  SS: formatDate(date.getSeconds()),
+
+}
+
+const format24Hour = ({dd, mm, yyyy, HH, MM, SS}) => {
+  return `${mm}/${dd}/${yyyy} ${HH}:${MM}:${SS}`
+}
+
 
 // Create and save a new expense
 const createExpense = asyncHandler(async (req, res) => {
@@ -14,7 +40,7 @@ const createExpense = asyncHandler(async (req, res) => {
     const expense = await Expense.create({ 
       title, 
       amount, 
-      date: new Date(), 
+      date: format24Hour(format), 
       category, 
       method, 
       user: req.userId // Get user ID from auth middleware

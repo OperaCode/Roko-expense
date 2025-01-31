@@ -7,80 +7,69 @@ import SortModal from "../Modals/SortModal";
 import IconModal from "../Modals/iconModal";
 import DeleteModal from "../Modals/deleteModal";
 import EditModal from "../Modals/editModal";
-import { IoSearch } from "react-icons/io5";
-// import SortModal from "../Modals/SortModal";
 
 const transactions = [
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "Orlando",
     category: "Food and Groceries",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$4,850.00",
   },
   {
     title: "PayPal",
     category: "TRavel and Expenses",
     method: "Credit Card",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$3,600.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
   {
     title: "Netflix",
     category: "Utility",
     method: "Bank Transfer",
-    date: new Date().toLocaleDateString()
-,
+    date: new Date().toLocaleDateString(),
     amount: "$400.00",
   },
 ];
@@ -137,30 +126,22 @@ const History = () => {
   return (
       <section className="flex p-6 w-full font-bodyFont">
         <div className="w-full rounded-lg mt-4 shadow-md">
-          <div className=" bg-white h-screen p-4">
-            <div className="flex justify-center items-center">
-            <div className="bg-indigo-100 p-4 w-full rounded-md flex gap-4">
-              <div className="flex items-center text-zinc-400 cursor-pointer hover:text-zinc-600 transition-all">
-              <IoSearch />
-              </div>
-              <input type="text" className="bg-transparent"placeholder="Search by Keyword"/>
+          <div className=" bg-white h-screen p-4 rounded">
+            <div className=" flex text-white justify-center items-center">
+              <input
+                type="text"
+                className="w-full p-6 h-10 mx-2 rounded text-black bg-indigo-200"
+                placeholder="Search by Keyword"
+              />
             </div>
-            </div>
+
             {/* Buttons */}
             <div className="flex justify-between items-center py-4 md:text-lg text-white">
               <div className="p-4">
-                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900" onClick={openSortModal}>
-                  <FaCaretDown size={20}/>
-                  Sort by Category
-                </button>
-              </div>
-
-              <div className="p-4">
-                <button className="md:text-md text-sm flex items-center p-3 gap-1 md:px-4 bg-indigo-700 rounded hover:bg-indigo-900" onClick={openDownloadModal}>
-                  {/* bg-indigo-700 text-white w-1/3 p-3 rounded hover:bg-indigo-900" */}
-                  <FaCaretDown size={20}/>
-                  Download
-                </button>
+                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openSortModal}>
+                    <FaCaretDown />
+                    Sort by Category
+                  </button>
               </div>
             </div>
 
@@ -175,7 +156,7 @@ const History = () => {
                     <th className="text-center text-base  text-gray-700 ">
                       Category
                     </th>
-                    <th className="text-center text-base text-gray-700 hidden md:block">
+                    <th className="text-center text-base text-gray-700  md:block">
                       Transaction Method
                     </th>
                     <th className="text-center text-base  text-gray-700">
@@ -184,7 +165,7 @@ const History = () => {
                     <th className="text-center text-base text-gray-700">
                       Amount
                     </th>
-                    <th className="text-center  text-base text-gray-700">
+                    <th className="text-center text-base text-gray-700">
                       Action
                     </th>
                   </tr>
@@ -200,7 +181,7 @@ const History = () => {
                       <td className="text-center text-base p-2 text-gray-800">
                         {transaction.title}
                       </td>
-                      <td className="text-center text-base p-2 text-gray-800 ">
+                      <td className="text-center text-base p-2 text-gray-800">
                         {transaction.category}
                       </td>
                       <td className="text-center text-base p-2 hidden md:block text-gray-600">
@@ -212,8 +193,8 @@ const History = () => {
                       <td className="text-center text-base p-2  text-green-500">
                         {transaction.amount}
                       </td>
-                      <td className="p-2 md:px-6 text-base text-indigo-900 cursor-pointer">
-                        <CiMenuKebab className="m-auto" onClick={openModal}/>
+                      <td className="p-2 md:px-6 text-base cursor-pointer text-indigo-900" onClick={openModal}>
+                       <CiMenuKebab className="m-auto" />
                       </td>
                     </tr>
                   ))}
@@ -224,13 +205,7 @@ const History = () => {
         </div>
         {downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
         {sortModalOpen && <SortModal onClose={closeSortModal}/>}
-{downloadModalOpen && <DownloadModal onClose={closeDownloadModal}/>}
-{sortModalOpen && <SortModal onClose={closeSortModal}/>}
-{modalOpen && (
-  <IconModal 
-    onClose={closeModal} 
-    onDelete={() => {
-      closeModal(); // Close the icon modal first
+        {modalOpen && (<IconModal onClose={closeModal} onDelete={() => { closeModal(); // Close the icon modal first
       setDeleteModalOpen(true); // Then open delete modal
     }} 
     onEdit={() => {

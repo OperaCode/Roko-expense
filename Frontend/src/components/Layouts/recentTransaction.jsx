@@ -1,7 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const RecentTransactions = ({ transactions = [] }) => {
+const RecentTransactions = () => {
+  const transactions = [
+    {
+      title: "Orlando",
+      category: "Food and Groceries",
+      method: "Bank Transfer",
+      date: Date.now(),
+      amount: "$4,850.00",
+    },
+    {
+      title: "Rent",
+      category: "Utility",
+      method: "Credit Card",
+      date: Date.now(),
+      amount: "$3,600.00",
+    },
+    {
+      title: "PayPal",
+      category: "Travel and Vacation",
+      method: "Bank Transfer",
+      date: Date.now(),
+      amount: "$400.00",
+    },
+  ];
+
   return (
     <div className="mt-10">
       <div className="flex justify-between items-center">

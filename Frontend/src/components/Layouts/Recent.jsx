@@ -34,6 +34,9 @@ const Recent = () => {
           <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
             See all
           </button>
+          <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
+            See all
+          </button>
         </Link>
       </div>
 
@@ -50,6 +53,7 @@ const Recent = () => {
               <th className="text-center text-base text-gray-700 md:hidden">Action</th>
             </tr>
           </thead>
+
           <tbody>
             {transactions.length > 0 ? (
               transactions.map((transaction, index) => (
@@ -71,6 +75,7 @@ const Recent = () => {
                 <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found.</td>
               </tr>
             )}
+            
           </tbody>
         </table>
       </div>

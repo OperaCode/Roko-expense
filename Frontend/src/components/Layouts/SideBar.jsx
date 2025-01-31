@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaWindowClose } from "react-icons/fa";
 import logo from "../../assets/Roko-logo.png";
 import anotherlogo2 from "../../assets/anotherlogo2.png"
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const dashboardLinks = [
@@ -67,8 +68,8 @@ const logoutUser = async () => {
                 <li className="hover:cursor-pointer lg:text-2xl">Dashboard</li>
               </Link>
 
-              <Link to='/history'>
-                <li className="hover:cursor-pointer lg:text-2xl">Invoice</li>
+              <Link to="/history">
+              <li className="hover:cursor-pointer lg:text-2xl">History</li>
               </Link>
 
               <Link to="/profile-setting">

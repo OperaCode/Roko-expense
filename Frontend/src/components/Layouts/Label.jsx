@@ -12,7 +12,7 @@ const labelObject = [
     percent: "20%",
   },
   {
-    type: "TRavel and Vacation",
+    type: "Transportation",
     color: "#ff6384",
     percent: "10%",
   },

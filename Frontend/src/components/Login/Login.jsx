@@ -3,8 +3,10 @@ import { GoArrowLeft } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import PasswordInput from "../Layouts/PasswordInput";
+import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -73,8 +75,7 @@ const Login = () => {
           <div className="text-white space-y-10 py-20 md:flex-1">
             <div className="space-y-4 pr-12 font-headerFont flex flex-col gap-2">
               <h1 className="text-5xl font-bold">Welcome Back!</h1>
-              <p className="text-2xl lg:w-8/12">
-                Login to make seamless transaction records effortlessly.</p>
+              <p className="text-2xl lg:w-8/12">Login to make seamless transaction records effortlessly.</p>
             </div>
 
             <div className="">
