@@ -15,6 +15,7 @@ const override = {
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const HomeDash = () => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [transactions, setTransactions] = useState([]);
@@ -43,11 +44,19 @@ const HomeDash = () => {
     setTransactions(prevTransactions => [newTransaction, ...prevTransactions]);
   };
 
-  const totalExpenses = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
-  const totalFoodGroceries = transactions.filter(t => t.category === "Food and groceries").reduce((acc, t) => acc + t.amount, 0);
-  const totalUtilities = transactions.filter(t => t.category === "Utilities").reduce((acc, t) => acc + t.amount, 0);
-  const totalTransportation = transactions.filter(t => t.category === "Transportation").reduce((acc, t) => acc + t.amount, 0);
+  const totalExpenses = Array.isArray(transactions) 
+  ? transactions.reduce((acc, transaction) => acc + (transaction.amount || 0), 0) 
+  : 0;
+  const totalFoodGroceries = Array.isArray(transactions)
+  ? transactions.filter(t => t.category === "Food and groceries").reduce((acc, t) => acc + (t.amount || 0), 0)
+  : 0;
+  const totalUtilities = Array.isArray(transactions)
+  ? transactions.filter(t => t.category === "Utilities").reduce((acc, t) => acc + (t.amount || 0), 0)
+  : 0;
 
+const totalTransportation = Array.isArray(transactions)
+  ? transactions.filter(t => t.category === "Transportation").reduce((acc, t) => acc + (t.amount || 0), 0)
+  : 0;
   if (isLoading) return <ClipLoader color='1a80e5' cssOverride={override} loading={isLoading} />;
 
   return (

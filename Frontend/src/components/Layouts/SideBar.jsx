@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { FaWindowClose } from "react-icons/fa";
-import logo from "../../assets/Roko-logo.png";
+
 import anotherlogo2 from "../../assets/anotherlogo2.png"
 // import { toast } from "react-toastify";
 import axios from "axios";

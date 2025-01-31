@@ -51,12 +51,10 @@ const Recent = ({ transaction }) => {
           </thead>
 
           <tbody>
-            {transactions.length > 0 ? (
-              transactions
-              .slice(0, 3)
-              .map((transaction, index) => {
-                const transactionDate = new Date(transaction.date);
-                const formattedDate = transactionDate.toLocaleDateString();
+          {Array.isArray(transactions) && transactions.length > 0 ? (
+  transactions.slice(0, 3).map((transaction, index) => {
+    const transactionDate = transaction.date ? new Date(transaction.date) : null;
+    const formattedDate = transactionDate ? transactionDate.toLocaleDateString() : "Invalid Date";
             
                 return (
                   <tr

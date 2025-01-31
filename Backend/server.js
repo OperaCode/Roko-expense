@@ -27,6 +27,7 @@ app.use(cors({
   methods: "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS",
 }))
 
+
 app.use(limiter);
 app.use("/expense", expenseRoute); 
 app.use("/user", userRoute); 
