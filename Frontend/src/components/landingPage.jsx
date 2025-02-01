@@ -6,14 +6,14 @@ import singlelaptop from "../assets/single-laptop.png";
 import laptopcafe from "../assets/laptop-cafe.png";
 import laptopterrace from "../assets/laptop-terrace.png"
 import holdingPhone from "../assets/holdingPhone.png";
-import rokologo from "../assets/Roko-logo.png";
+import logo from "../assets/anotherlogo2.png";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
     <>
       <main className="bg-gradient-to-tl from-indigo-400 to-indigo-950 pb-4">
-        <Header logo ={rokologo}/>
+        <Header logo ={logo}/>
         <section className="flex flex-col text-center lg:pt-40 ">
           <div className="text-white lg:px-36">
             <h1 className="font-bold font-headerFont text-5xl leading-normal">

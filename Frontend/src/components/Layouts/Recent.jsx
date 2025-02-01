@@ -34,9 +34,6 @@ const Recent = () => {
           <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
             See all
           </button>
-          <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
-            See all
-          </button>
         </Link>
       </div>
 
@@ -88,7 +85,7 @@ const Recent = () => {
               })
             ) : (
               <tr>
-                <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found.</td>
+                <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found!</td>
               </tr>
             )}
             

@@ -1,6 +1,6 @@
 import React from "react";
 import { IoMdMenu } from "react-icons/io";
-import logo from '../../assets/Roko-logo.png';
+
 import { Link, useLocation } from "react-router-dom";
 import anotherlogo from "../../assets/anotherlogo2.png"
 

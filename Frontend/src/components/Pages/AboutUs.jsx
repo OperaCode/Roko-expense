@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import about from './../../assets/AboutHero.png';
 import phone from './../../assets/laptop.png';
 import Header from '../Layouts/Header';
-import rokologo from "./../../assets/Roko-logo.png";
+import rokologo from "./../../assets/anotherlogo2.png";
 import { Link } from 'react-router-dom';
 
 const AboutUs = () => {

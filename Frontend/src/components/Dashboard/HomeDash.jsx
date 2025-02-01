@@ -48,14 +48,14 @@ const HomeDash = () => {
   ? transactions.reduce((acc, transaction) => acc + (transaction.amount || 0), 0) 
   : 0;
   const totalFoodGroceries = Array.isArray(transactions)
-  ? transactions.filter(t => t.category === "Food and groceries").reduce((acc, t) => acc + (t.amount || 0), 0)
+  ? transactions.filter(transaction => transaction.category === "Food and groceries").reduce((acc, transaction) => acc + (transaction.amount || 0), 0)
   : 0;
   const totalUtilities = Array.isArray(transactions)
-  ? transactions.filter(t => t.category === "Utilities").reduce((acc, t) => acc + (t.amount || 0), 0)
+  ? transactions.filter(transaction => transaction.category === "Utilities").reduce((acc, transaction) => acc + (transaction.amount || 0), 0)
   : 0;
 
 const totalTransportation = Array.isArray(transactions)
-  ? transactions.filter(t => t.category === "Transportation").reduce((acc, t) => acc + (t.amount || 0), 0)
+  ? transactions.filter(transaction => transaction.category === "Transportation").reduce((acc, transaction) => acc + (transaction.amount || 0), 0)
   : 0;
   if (isLoading) return <ClipLoader color='1a80e5' cssOverride={override} loading={isLoading} />;
 
