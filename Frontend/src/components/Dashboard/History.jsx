@@ -142,7 +142,7 @@ const History = () => {
                     <FaCaretDown />
                     Sort by Category
                   </button>
-                  <button className="text-sm flex justify-center p-3 w-1/4 gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openSortModal}>
+                  <button className="text-sm flex justify-center p-3 w-1/4 gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openDownloadModal}>
                     <FaCaretDown />
                     Download
                   </button>
