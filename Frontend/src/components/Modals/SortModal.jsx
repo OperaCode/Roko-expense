@@ -18,6 +18,9 @@ const SortModal = ({onClose}) => {
               <button className="px-4 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Title
               </button>
+              <button className=" bg-indigo-900 text-white rounded hover:bg-indigo-800">
+               Category
+              </button>
               <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Method
               </button>
@@ -26,12 +29,6 @@ const SortModal = ({onClose}) => {
               </button>
               <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Amount
-              </button>
-              <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
-                Income
-              </button>
-              <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
-                Expenses
               </button>
             </div>
           </div>

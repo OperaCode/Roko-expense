@@ -137,10 +137,14 @@ const History = () => {
 
             {/* Buttons */}
             <div className="flex justify-between items-center py-4 md:text-lg text-white">
-              <div className="p-4">
-                  <button className="text-sm flex items-center p-3 w-full gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openSortModal}>
+              <div className="p-4 flex justify-between w-full">
+                  <button className="text-sm flex justify-center p-3 w-1/4 gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openSortModal}>
                     <FaCaretDown />
                     Sort by Category
+                  </button>
+                  <button className="text-sm flex justify-center p-3 w-1/4 gap-2 md:px-4 py-2 bg-indigo-700 text-white rounded-lg hover:bg-blue-600" onClick={openSortModal}>
+                    <FaCaretDown />
+                    Download
                   </button>
               </div>
             </div>
