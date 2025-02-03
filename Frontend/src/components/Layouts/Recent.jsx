@@ -3,20 +3,21 @@ import { CiMenuKebab } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const Recent = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const UserId = localStorage.getItem("userId"); 
-        const response = await axios.get(`http://localhost:3000/transactions/${UserId}`, { withCredentials: true });
+        // const UserId = localStorage.getItem("userId"); 
+        const response = await axios.get(`${BASE_URL}/expense`, { withCredentials: true });
         setTransactions(response.data || []); 
       } catch (error) {
         console.log("Error fetching transactions:", error);
       }
     };
-
     fetchTransactions();
   }, []);
 
@@ -31,9 +32,7 @@ const Recent = () => {
           {/* <p className="text-xs p-2 md:text-gray-500">Check your transaction history</p> */}
         </div>
         <Link to="/history">
-          <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900">
-            See all
-          </button>
+          <button className="text-sm p-3 md:px-4 py-2 bg-indigo-700 text-white rounded hover:bg-blue-900 mb-2">See all</button>
         </Link>
       </div>
 
