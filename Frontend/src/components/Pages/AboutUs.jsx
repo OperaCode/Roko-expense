@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import about from './../../assets/AboutHero.png';
 import phone from './../../assets/laptop.png';
 import Header from '../Layouts/Header';
-import rokologo from "./../../assets/Roko-logo.png";
+// import rokologo from "./../../assets/Roko-logo.png";
 import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
@@ -16,7 +16,7 @@ const AboutUs = () => {
     <section className="bg-indigo-200">
   {/* Hero Section */}
   <div className="bg-gradient-to-tl from-indigo-400 to-indigo-950 pb-4 mb-12">
-    <Header logo={rokologo} />
+    <Header/>
     <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center pt-4 md:pt-12 lg:pt-48">
         {/* Text Content */}

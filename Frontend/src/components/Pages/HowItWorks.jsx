@@ -1,5 +1,4 @@
 import React from "react";
-import img from "./../../assets/HIW-img.png";
 import Header from "../Layouts/Header";
 import { Link } from "react-router-dom";
 import avatar from './../../assets/avatar.png'

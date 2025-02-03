@@ -22,7 +22,7 @@ import EditModal from "./components/Modals/editModal.jsx";
 import IconModal from "./components/Modals/iconModal.jsx";
 import MobileMenuModal from "./components/Modals/MobileMenuModal.jsx";
 import NavBarModal from "./components/Modals/navBarModal.jsx";
-import SortByModal from "./components/Modals/sortByModal.jsx";
+// import SortByModal from "./components/Modals/sortByModal.jsx";
 
 function App() {
   const RenderRoute = () => (
@@ -78,7 +78,7 @@ function App() {
       <Route path="/icon_modal" element={<IconModal />} />
       <Route path="/mobile_menu_modal" element={<MobileMenuModal />} />
       <Route path="/nav_bar_modal" element={<NavBarModal />} />
-      <Route path="/sort_modal" element={<SortByModal />} />
+      {/* <Route path="/sort_modal" element={<SortByModal />} /> */}
       <Route path="/add_expense_modal" element={<AddExpenseModal/>} />
       {/* <Route path="/uploadpicture" element={<ProfilePictureUpload />} /> */}
       {/* <Route path="/profilePicture" element={<Profile />} /> */}
