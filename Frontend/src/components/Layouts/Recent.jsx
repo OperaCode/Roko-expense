@@ -84,7 +84,7 @@ const Recent = () => {
               })
             ) : (
               <tr>
-                <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found.</td>
+                <td colSpan="6" className="text-center text-gray-500 p-4">No recent transactions found!</td>
               </tr>
             )}
             

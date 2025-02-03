@@ -18,7 +18,10 @@ const SortModal = ({onClose}) => {
               <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Title
               </button>
-              <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
+              <button className=" bg-indigo-900 text-white rounded hover:bg-indigo-800">
+               Category
+              </button>
+              <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Method
               </button>
               <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
@@ -27,10 +30,10 @@ const SortModal = ({onClose}) => {
               <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Amount
               </button>
-              <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
+              <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Income
               </button>
-              <button className="px-8 py-3 bg-indigo-900 text-white rounded hover:bg-indigo-800">
+              <button className="px-1 py-2 bg-indigo-900 text-white rounded hover:bg-indigo-800">
                 Expenses
               </button>
             </div>

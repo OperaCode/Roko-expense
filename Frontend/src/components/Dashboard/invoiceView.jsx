@@ -38,11 +38,11 @@ const InvoiceView = () => {
       {/* <SideBar /> */}
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-tl from-indigo-400 to-indigo-950 p-4 md:p-6 text-white">
+      <div className="flex-1 p-4 md:p-6 text-white">
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           {/* Back Button */}
           <button
-            className="flex items-center space-x-2 text-indigo-100 hover:text-indigo-500 focus:outline-none mb-4 md:mb-0"
+            className="flex items-center space-x-2 text-indigo-100 hover:text-indigo-200 focus:outline-none mb-4 md:mb-0"
             onClick={() => window.history.back()}
           >
             <ion-icon name="arrow-back-outline" size="large"></ion-icon>
